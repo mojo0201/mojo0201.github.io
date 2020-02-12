@@ -6,6 +6,8 @@
 // - describe what you did to take this project "above and beyond"
 let bg;
 let player;
+let playerX;
+let playerY;
 
 function preload() {
   bg = loadImage("assets/backround.png")
@@ -14,37 +16,39 @@ function preload() {
 
 function setup() {
   createCanvas(512, 512);
+  playerX = 0;
+  playerY = 0;
 }
 
 
 function keyPressed() {
-  if (keyCode === UP_ARROW) {
-    squareY = squareY - 32;
+  if (keyCode === UP_ARROW || key === "w") {
+    playerY = playerY - 32;
     // if (millis() + 500) {
-    //   squareY = squareY - 32;
+    //   playerY = playerY - 32;
     // }
   }
   if (keyCode === DOWN_ARROW) {
-    squareY = squareY + 32;
+    playerY = playerY + 32;
   //   if (millis() + 500) {
-  //     squareY = squareY + 32;
+  //     playerY = playerY + 32;
   //   }
-  // }
+  }
   if (keyCode === RIGHT_ARROW) {
-    squareX = squareX + 32;
+    playerX = playerX + 32;
   //   if (millis() + 500) {
-  //     squareX = squareX + 32;
+  //     playerX = playerX + 32;
   //   }
-  // }
+  }
   if (keyCode === LEFT_ARROW) {
-    squareX = squareX - 32;
+    playerX = playerX - 32;
   //   if (millis() + 500) {
-  //     squareX = squareX - 32;
+  //     playerX = playerX - 32;
   //   }
-  // }
+  }
 }
 
 function draw() {
   background(bg);
-  image(player, 0, 0, 32, 32)
+  image(player, playerX, playerY, 32, 32)
 }
