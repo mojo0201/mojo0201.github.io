@@ -6,8 +6,8 @@
 // - describe what you did to take this project "above and beyond"
 let bg;
 let player;
-let playerX;
-let playerY;
+let playerX = 256;
+let playerY = 256;
 
 function preload() {
   bg = loadImage("assets/backround.png")
@@ -16,35 +16,24 @@ function preload() {
 
 function setup() {
   createCanvas(512, 512);
-  playerX = 0;
-  playerY = 0;
 }
 
 
 function keyPressed() {
   if (keyCode === UP_ARROW || key === "w") {
     playerY = playerY - 32;
-    // if (millis() + 500) {
-    //   playerY = playerY - 32;
-    // }
+
   }
-  if (keyCode === DOWN_ARROW) {
+  if (keyCode === DOWN_ARROW || key ==="s") {
     playerY = playerY + 32;
-  //   if (millis() + 500) {
-  //     playerY = playerY + 32;
-  //   }
+
   }
-  if (keyCode === RIGHT_ARROW) {
+  if (keyCode === RIGHT_ARROW || key === "d") {
     playerX = playerX + 32;
-  //   if (millis() + 500) {
-  //     playerX = playerX + 32;
-  //   }
+
   }
-  if (keyCode === LEFT_ARROW) {
+  if (keyCode === LEFT_ARROW || key === "a") {
     playerX = playerX - 32;
-  //   if (millis() + 500) {
-  //     playerX = playerX - 32;
-  //   }
   }
 }
 
