@@ -5,20 +5,37 @@
 // Extra for Experts:
 // - describe what you did to take this project "above and beyond"
 
+let cnv;
+let d;
+let g;
 let savage;
-
 function preload(){
-  savage = loadImage("assets/21savage.png")
+
+}
+function preload(){
+  savage = loadImage("assests/21savage.png");
 }
 
-
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  cnv = createCanvas(100, 100);
+  cnv.mouseWheel(changeSize);
+  d = 10;
+  g = 100;
 }
 
 function draw() {
-  background(255);
-  // fill(random(0,255),random(0,255),random(0,255),random(0,255))
-  // rect(mouseX - 25, mouseY - 25, 50, 50)
-  image(savage, mouseX, mouseY, width -100, 100)  
+  background(image(savage, width, height));
+  image(savage, 0, 0, d, d);
+}
+
+function mouseWheel() {
+  g = g + 10;
+}
+
+function changeSize(event) {
+  if (event.deltaY > 0) {
+    d = d + 10;
+  } else {
+    d = d - 10;
+  }
 }

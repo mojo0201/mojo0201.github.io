@@ -21,19 +21,28 @@ function setup() {
 
 function keyPressed() {
   if (keyCode === UP_ARROW || key === "w") {
-    playerY = playerY - 32;
+    if (playerY > 0) {
+      playerY = playerY - 32;  
+    }
 
   }
   if (keyCode === DOWN_ARROW || key ==="s") {
-    playerY = playerY + 32;
-
+    if (playerY < 480) {
+      playerY = playerY + 32;
+    }
+    
   }
   if (keyCode === RIGHT_ARROW || key === "d") {
-    playerX = playerX + 32;
-
+    if (playerX < 480) {
+      playerX = playerX + 32;
+    }
+        
   }
   if (keyCode === LEFT_ARROW || key === "a") {
-    playerX = playerX - 32;
+    if (playerX > 0){
+      playerX = playerX - 32
+    }
+    
   }
 }
 
