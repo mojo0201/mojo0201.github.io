@@ -55,7 +55,8 @@ function draw() {
   background(bg);
   image(player, playerX, playerY, 32, 32);
   image(rat, ratX, ratY, 32, 32);
-  while(playerX != ratX && playerY != ratY){
+  for (let i = 0; i < 10; i++){
+    delayTime(1)
     let chance = random(1,4);
     if (chance === 1) {
       ratY = ratY - 32;
