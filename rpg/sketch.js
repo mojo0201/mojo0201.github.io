@@ -1,21 +1,26 @@
-// Project Title
-// Your Name
-// Date
+// RPG
+// Seth Jones
+// 2/12/2020
 //
-// Extra for Experts:
-// - describe what you did to take this project "above and beyond"
+
 let bg;
 let player;
 let playerX = 256;
 let playerY = 256;
+let ratX = 384;
+let ratY = 384;
+let chance;
 
 function preload() {
-  bg = loadImage("assets/backround.png")
-  player = loadImage("assets/player.png")
+  bg = loadImage("assets/backroundOne.png");
+  player = loadImage("assets/player.png");
+  rat = loadImage("assets/rat.png");
 }
 
 function setup() {
   createCanvas(512, 512);
+  frameRate(30);
+  
 }
 
 
@@ -40,7 +45,7 @@ function keyPressed() {
   }
   if (keyCode === LEFT_ARROW || key === "a") {
     if (playerX > 0){
-      playerX = playerX - 32
+      playerX = playerX - 32;
     }
     
   }
@@ -48,5 +53,25 @@ function keyPressed() {
 
 function draw() {
   background(bg);
-  image(player, playerX, playerY, 32, 32)
+  image(player, playerX, playerY, 32, 32);
+  image(rat, ratX, ratY, 32, 32);
+  while(playerX != ratX && playerY != ratY){
+    let chance = random(1,4);
+    if (chance === 1) {
+      ratY = ratY - 32;
+      delayTime(2)
+    }
+    else if (chance === 2) {
+      ratY = ratY + 32;
+      delayTime(2)
+    }
+    else if (chance === 3) {
+      ratX = ratX + 32;
+      delayTime(2)
+    }
+    else if (chance === 4) {
+      ratX = ratX - 32;
+      delayTime(2)
+    }
+  }
 }
