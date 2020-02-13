@@ -59,7 +59,41 @@ function draw() {
   if (ratX !== playerX && ratY !== playerY) {
 
     let chance = Math.ceil(random(0,4));
-    console.log(chance)
+    if (chance === 1) {
+      if(ratY > 32){
+        ratY = ratY - 32;
+      }
+      else{
+        break
+      }
+    }
+    else if (chance === 2) {
+      ratY = ratY + 32;
+    }
+    else if (chance === 3) {
+      ratX = ratX + 32;
+    }
+    else if (chance === 4) {
+      ratX = ratX - 32;
+    }
+  }
+  else if (ratX === playerX && ratY !== playerY) {
+    let chance = Math.ceil(random(0,4));
+    if (chance === 1) {
+      ratY = ratY - 32;
+    }
+    else if (chance === 2) {
+      ratY = ratY + 32;
+    }
+    else if (chance === 3) {
+      ratX = ratX + 32;
+    }
+    else if (chance === 4) {
+      ratX = ratX - 32;
+    }
+  }
+  else if (ratX !== playerX && ratY === playerY) {
+    let chance = Math.ceil(random(0,4));
     if (chance === 1) {
       ratY = ratY - 32;
     }
