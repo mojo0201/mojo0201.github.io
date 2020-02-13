@@ -3,7 +3,7 @@
 // 2/12/2020
 //
 
-let bg;
+let bgOne;
 let player;
 let playerX = 256;
 let playerY = 256;
@@ -12,7 +12,7 @@ let ratY = 384;
 let chance;
 
 function preload() {
-  bg = loadImage("assets/backroundOne.png");
+  bgOne = loadImage("assets/backroundOne.png");
   player = loadImage("assets/player.png");
   rat = loadImage("assets/rat.png");
 }
@@ -26,7 +26,7 @@ function setup() {
 
 function keyPressed() {
   if (keyCode === UP_ARROW || key === "w") {
-    if (playerY > 0) {
+    if (playerY > 32) {
       playerY = playerY - 32;  
     }
 
@@ -52,27 +52,25 @@ function keyPressed() {
 }
 
 function draw() {
-  background(bg);
+  background(bgOne);
   image(player, playerX, playerY, 32, 32);
   image(rat, ratX, ratY, 32, 32);
-  for (let i = 0; i < 10; i++){
-    delayTime(1)
-    let chance = random(1,4);
+
+  if (ratX !== playerX && ratY !== playerY) {
+
+    let chance = Math.ceil(random(0,4));
+    console.log(chance)
     if (chance === 1) {
       ratY = ratY - 32;
-      delayTime(2)
     }
     else if (chance === 2) {
       ratY = ratY + 32;
-      delayTime(2)
     }
     else if (chance === 3) {
       ratX = ratX + 32;
-      delayTime(2)
     }
     else if (chance === 4) {
       ratX = ratX - 32;
-      delayTime(2)
     }
   }
 }
