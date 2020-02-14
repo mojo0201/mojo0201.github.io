@@ -72,26 +72,26 @@ function keyPressed() {
 }
 
 function draw() {
-  let time_now = millis();
+  let timeNow = millis();
   background(bgOne);
   image(player, playerX, playerY, 32, 32);
   image(rat, ratX, ratY, 32, 32);
 
   if (ratX !== playerX && ratY !== playerY) {
-    while(millis() >= time_now + period){
-      time_now += period;
+    while(millis() >= timeNow + period){
+      timeNow += period;
     }
     ratMovement();
   }
   else if (ratX === playerX && ratY !== playerY) {
-    while(millis() >= time_now + period){
-      time_now += period;
+    while(millis() >= timeNow + period){
+      timeNow += period;
     }
     ratMovement();
   }
   else if (ratX !== playerX && ratY === playerY) {
-    while(millis() >= time_now + period){
-      time_now += period;
+    while(millis() >= timeNow + period){
+      timeNow += period;
     }
     ratMovement();
   }
