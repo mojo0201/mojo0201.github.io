@@ -20,7 +20,7 @@ function preload() {
 
 function setup() {
   createCanvas(512, 512);
-  frameRate(30);
+  frameRate(5);
 }
 
 function ratMovement() {
