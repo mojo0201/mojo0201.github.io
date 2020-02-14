@@ -11,6 +11,7 @@ let ratX = 384;
 let ratY = 384;
 let chance;
 let bgNum = 1;
+let period = 1000;
 
 function preload() {
   bgOne = loadImage("assets/backroundOne.png");
@@ -20,7 +21,7 @@ function preload() {
 
 function setup() {
   createCanvas(512, 512);
-  frameRate(5);
+  frameRate(30);
 }
 
 function ratMovement() {
@@ -71,17 +72,27 @@ function keyPressed() {
 }
 
 function draw() {
+  let time_now = millis();
   background(bgOne);
   image(player, playerX, playerY, 32, 32);
   image(rat, ratX, ratY, 32, 32);
 
   if (ratX !== playerX && ratY !== playerY) {
+    while(millis() >= time_now + period){
+      time_now += period;
+    }
     ratMovement();
   }
   else if (ratX === playerX && ratY !== playerY) {
+    while(millis() >= time_now + period){
+      time_now += period;
+    }
     ratMovement();
   }
   else if (ratX !== playerX && ratY === playerY) {
+    while(millis() >= time_now + period){
+      time_now += period;
+    }
     ratMovement();
   }
 }
