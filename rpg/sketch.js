@@ -78,21 +78,27 @@ function draw() {
   image(rat, ratX, ratY, 32, 32);
 
   if (ratX !== playerX && ratY !== playerY) {
-    while(millis() >= timeNow + period){
-      timeNow += period;
+    if(millis() < timeNow + period){
+      console.log("here");
     }
+   else if (millis() >= timeNow + period){
     ratMovement();
+   }
   }
   else if (ratX === playerX && ratY !== playerY) {
-    while(millis() >= timeNow + period){
-      timeNow += period;
+    if(millis() < timeNow + period){
+      console.log("here");
     }
+   else if (millis() >= timeNow + period){
     ratMovement();
+   }
   }
   else if (ratX !== playerX && ratY === playerY) {
-    while(millis() >= timeNow + period){
-      timeNow += period;
+    if(millis() < timeNow + period){
+      console.log("here");
     }
+   else if (millis() >= timeNow + period){
     ratMovement();
+   }
   }
 }
