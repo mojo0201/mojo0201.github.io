@@ -12,6 +12,9 @@ let ratY = 384;
 let chance;
 let bgNum = 1;
 let period = 1000;
+let keyDownPeriod = 500;
+let keyTimeNow = 0;
+let ratTimeNow = 0;
 
 function preload() {
   bgOne = loadImage("assets/backroundOne.png");
@@ -49,56 +52,51 @@ function ratMovement() {
 }
 
 function keyPressed() {
-  if (keyCode === UP_ARROW || key === "w") {
+  if (keyIsDown(UP_ARROW) || keyIsDown(87)) {
     if (playerY > 32) {
-      playerY = playerY - 32;  
+      if(millis() >= keyTimeNow + keyDownPeriod)
+        playerY -= 32;  
+        keyTimeNow = millis()
     }
   }
-  if (keyCode === DOWN_ARROW || key ==="s") {
+  if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
     if (playerY < 448) {
-      playerY = playerY + 32;
+      playerY += 32;
     } 
   }
-  if (keyCode === RIGHT_ARROW || key === "d") {
+  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
     if (playerX < 480) {
-      playerX = playerX + 32;
+      playerX += 32;
     }  
   }
-  if (keyCode === LEFT_ARROW || key === "a") {
+  if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
     if (playerX > 32){
-      playerX = playerX - 32;
+      playerX -= 32;
     }
   }
 }
 
 function draw() {
-  let timeNow = millis();
   background(bgOne);
   image(player, playerX, playerY, 32, 32);
   image(rat, ratX, ratY, 32, 32);
 
   if (ratX !== playerX && ratY !== playerY) {
-    if(millis() < timeNow + period){
-      console.log("here");
+    if(millis() >= ratTimeNow + period){
+      ratMovement();
+      ratTimeNow = millis()
     }
-   else if (millis() >= timeNow + period){
-    ratMovement();
-   }
   }
   else if (ratX === playerX && ratY !== playerY) {
-    if(millis() < timeNow + period){
-      console.log("here");
-    }
-   else if (millis() >= timeNow + period){
+    if(millis() >= ratTimeNow + period){
     ratMovement();
+    ratTimeNow = millis()
    }
   }
   else if (ratX !== playerX && ratY === playerY) {
-    if(millis() < timeNow + period){
-      console.log("here");
-    }
-   else if (millis() >= timeNow + period){
+    if(millis() >= ratTimeNow + period){
     ratMovement();
-   }
+    ratTimeNow = millis()
+    }
   }
 }
