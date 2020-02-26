@@ -15,6 +15,7 @@ let period = 1000;
 let keyDownPeriod = 500;
 let keyTimeNow;
 let ratTimeNow = 0;
+let state;
 
 function preload() {
   bgOne = loadImage("assets/backroundOne.png");
@@ -52,34 +53,63 @@ function ratMovement() {
 }
 
 function keyPressed() {
-  let keyTimeNow = millis();
-  if (keyIsDown(UP_ARROW) || keyIsDown(87)) {
+  keyTimeNow = millis()
+  if (keyIsDown(UP_ARROW) || keyIsDown(87) && millis() >= keyTimeNow + keyDownPeriod) {
     if (playerY > 32) {
-      playerY -= 32;
-      if (millis() >= keyTimeNow + keyDownPeriod)
-        playerY -= 32;
-        keyTimeNow = millis();
-      console.log(millis(), keyTimeNow, keyDownPeriod);
+      state = "up";
+      keyTimeNow = millis();
     }
   }
-  if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
+  if (keyIsDown(DOWN_ARROW) || keyIsDown(83) && millis() >= keyTimeNow + keyDownPeriod) {
     if (playerY < 448) {
-      playerY += 32;
+      state = "down";
+      keyTimeNow = millis();
     }
   }
-  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
+  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68) && millis() >= keyTimeNow + keyDownPeriod) {
     if (playerX < 480) {
-      playerX += 32;
+      state = "right"
+      keyTimeNow = millis();
     }
   }
-  if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
-    if (playerX > 32) {
-      playerX -= 32;
-    }
+  if (keyIsDown(LEFT_ARROW) || keyIsDown(65) && millis() >= keyTimeNow + keyDownPeriod)) {
+    
+  }
+  // let keyTimeNow = millis();
+  // if (keyIsDown(UP_ARROW) || keyIsDown(87)) {
+  //   if (playerY > 32) {
+  //     playerY -= 32;
+  //     if (millis() >= keyTimeNow + keyDownPeriod)
+  //       playerY -= 32;
+  //       keyTimeNow = millis();
+  //     console.log(millis(), keyTimeNow, keyDownPeriod);
+  //   }
+  // }
+  // if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
+  //   if (playerY < 448) {
+  //     playerY += 32;
+  //   }
+  // }
+  // if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
+  //   if (playerX < 480) {
+  //     playerX += 32;
+  //   }
+  // }
+  // if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
+  //   if (playerX > 32) {
+  //     playerX -= 32;
+  //   }
+  // }
+}
+
+function movement(){
+  if (state === "up"){
+    playerY -= 32;
   }
 }
 
 function draw() {
+  movement()
   background(bgOne);
   image(player, playerX, playerY, 32, 32);
   image(rat, ratX, ratY, 32, 32);
