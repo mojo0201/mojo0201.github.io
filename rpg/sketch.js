@@ -15,7 +15,11 @@ let period = 1000;
 let keyDownPeriod = 500;
 let keyTimeNow;
 let ratTimeNow = 0;
-let state;
+let up = false;
+let down = false;
+let right = false;
+let left = false;
+
 
 function preload() {
   bgOne = loadImage("assets/backroundOne.png");
@@ -53,27 +57,35 @@ function ratMovement() {
 }
 
 function keyPressed() {
-  keyTimeNow = millis()
-  if (keyIsDown(UP_ARROW) || keyIsDown(87) && millis() >= keyTimeNow + keyDownPeriod) {
+
+
+  if ((keyCode === UP_ARROW || key === "w")) {
+    keyTimeNow = millis();
     if (playerY > 32) {
-      state = "up";
+      up = true;
       keyTimeNow = millis();
     }
   }
-  if (keyIsDown(DOWN_ARROW) || keyIsDown(83) && millis() >= keyTimeNow + keyDownPeriod) {
+  if ((keyCode === DOWN_ARROW || key === "s") && millis() >= keyTimeNow + keyDownPeriod) {
+    keyTimeNow = millis();
     if (playerY < 448) {
-      state = "down";
+      down = true;
       keyTimeNow = millis();
     }
   }
-  if (keyIsDown(RIGHT_ARROW) || keyIsDown(68) && millis() >= keyTimeNow + keyDownPeriod) {
+  if ((keyCode === RIGHT_ARROW || key === "d") && millis() >= keyTimeNow + keyDownPeriod) {
+    keyTimeNow = millis();
     if (playerX < 480) {
-      state = "right"
+      right = true;
       keyTimeNow = millis();
     }
   }
-  if (keyIsDown(LEFT_ARROW) || keyIsDown(65) && millis() >= keyTimeNow + keyDownPeriod)) {
-    
+  if ((keyCode === LEFT_ARROW || key === "a") && millis() >= keyTimeNow + keyDownPeriod) {
+    keyTimeNow = millis();
+    if (playerX > 32) {
+      left = true;
+      keyTimeNow = millis();
+    }
   }
   // let keyTimeNow = millis();
   // if (keyIsDown(UP_ARROW) || keyIsDown(87)) {
@@ -102,14 +114,50 @@ function keyPressed() {
   // }
 }
 
-function movement(){
-  if (state === "up"){
-    playerY -= 32;
+function keyReleased() {
+  if (keyCode === UP_ARROW || key === "w") {
+    up = false;
+  }
+}
+if (keyCode === DOWN_ARROW || key === "s") {
+  down = false;
+}
+if (keyCode === RIGHT_ARROW || key === "d") {
+  right = false;
+}
+if (keyCode === LEFT_ARROW || key === "a") {
+    left = false;
+}
+
+function movement() {
+  if (playerX === ratX && playerY === ratY) {
+    state = "battle"
+  }
+  if (state === "up" && millis() >= keyTimeNow + keyDownPeriod) {
+    if (playerY > 32) {
+      playerY -= 32;
+    }
+  }
+  if (state === "down" && millis() >= keyTimeNow + keyDownPeriod) {
+    if (playerY < 448) {
+      playerY += 32;
+    }
+  }
+  if (state === "right" && millis() >= keyTimeNow + keyDownPeriod) {
+    if (playerX < 480) {
+      playerX += 32;
+    }
+  }
+  if (state === "left") {
+    if (playerX > 32) {
+      playerX -= 32;
+    }
   }
 }
 
+
 function draw() {
-  movement()
+  movement();
   background(bgOne);
   image(player, playerX, playerY, 32, 32);
   image(rat, ratX, ratY, 32, 32);
