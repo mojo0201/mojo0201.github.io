@@ -58,8 +58,6 @@ function ratMovement() {
 }
 
 function keyPressed() {
-
-
   if (keyCode === UP_ARROW || key === "w") {
     if (playerY > 32) {
       up = true;
@@ -80,31 +78,6 @@ function keyPressed() {
       left = true;
     }
   }
-  // let keyTimeNow = millis();
-  // if (keyIsDown(UP_ARROW) || keyIsDown(87)) {
-  //   if (playerY > 32) {
-  //     playerY -= 32;
-  //     if (millis() >= keyTimeNow + keyDownPeriod)
-  //       playerY -= 32;
-  //       keyTimeNow = millis();
-  //     console.log(millis(), keyTimeNow, keyDownPeriod);
-  //   }
-  // }
-  // if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) {
-  //   if (playerY < 448) {
-  //     playerY += 32;
-  //   }
-  // }
-  // if (keyIsDown(RIGHT_ARROW) || keyIsDown(68)) {
-  //   if (playerX < 480) {
-  //     playerX += 32;
-  //   }
-  // }
-  // if (keyIsDown(LEFT_ARROW) || keyIsDown(65)) {
-  //   if (playerX > 32) {
-  //     playerX -= 32;
-  //   }
-  // }
 }
 
 function keyReleased() {
