@@ -19,6 +19,7 @@ let up = false;
 let down = false;
 let right = false;
 let left = false;
+let state;
 
 
 function preload() {
@@ -59,32 +60,24 @@ function ratMovement() {
 function keyPressed() {
 
 
-  if ((keyCode === UP_ARROW || key === "w")) {
-    keyTimeNow = millis();
+  if (keyCode === UP_ARROW || key === "w") {
     if (playerY > 32) {
       up = true;
-      keyTimeNow = millis();
     }
   }
-  if ((keyCode === DOWN_ARROW || key === "s") && millis() >= keyTimeNow + keyDownPeriod) {
-    keyTimeNow = millis();
+  if (keyCode === DOWN_ARROW || key === "s") {
     if (playerY < 448) {
       down = true;
-      keyTimeNow = millis();
     }
   }
-  if ((keyCode === RIGHT_ARROW || key === "d") && millis() >= keyTimeNow + keyDownPeriod) {
-    keyTimeNow = millis();
+  if (keyCode === RIGHT_ARROW || key === "d") {
     if (playerX < 480) {
       right = true;
-      keyTimeNow = millis();
     }
   }
-  if ((keyCode === LEFT_ARROW || key === "a") && millis() >= keyTimeNow + keyDownPeriod) {
-    keyTimeNow = millis();
+  if (keyCode === LEFT_ARROW || key === "a") {
     if (playerX > 32) {
       left = true;
-      keyTimeNow = millis();
     }
   }
   // let keyTimeNow = millis();
@@ -116,41 +109,49 @@ function keyPressed() {
 
 function keyReleased() {
   if (keyCode === UP_ARROW || key === "w") {
-    up = false;
+      up = false;
   }
-}
-if (keyCode === DOWN_ARROW || key === "s") {
-  down = false;
-}
-if (keyCode === RIGHT_ARROW || key === "d") {
-  right = false;
-}
-if (keyCode === LEFT_ARROW || key === "a") {
-    left = false;
+  if (keyCode === DOWN_ARROW || key === "s") {
+    down = false;
+  }
+  if (keyCode === RIGHT_ARROW || key === "d") {
+    right = false;
+  }
+  if (keyCode === LEFT_ARROW || key === "a") {
+      left = false;
+  }
 }
 
 function movement() {
   if (playerX === ratX && playerY === ratY) {
     state = "battle"
   }
-  if (state === "up" && millis() >= keyTimeNow + keyDownPeriod) {
+  if (up === true && millis() >= keyTimeNow + keyDownPeriod) {
+    keyTimeNow = millis();
     if (playerY > 32) {
       playerY -= 32;
+      keyTimeNow = millis();
     }
   }
-  if (state === "down" && millis() >= keyTimeNow + keyDownPeriod) {
+  if (down === true && millis() >= keyTimeNow + keyDownPeriod) {
+    keyTimeNow = millis();
     if (playerY < 448) {
       playerY += 32;
+      keyTimeNow = millis();
     }
   }
-  if (state === "right" && millis() >= keyTimeNow + keyDownPeriod) {
+  if (right === true && millis() >= keyTimeNow + keyDownPeriod) {
+    keyTimeNow = millis();
     if (playerX < 480) {
       playerX += 32;
+      keyTimeNow = millis();
     }
   }
-  if (state === "left") {
+  if (left === true && millis() >= keyTimeNow + keyDownPeriod) {
+    keyTimeNow = millis();
     if (playerX > 32) {
       playerX -= 32;
+      keyTimeNow = millis();
     }
   }
 }
