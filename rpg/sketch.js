@@ -22,21 +22,25 @@ let pickpocket = 15;
 let speech = 15;
 let alchemy = 15;
 
-let bgOne;
+//Background
+let backgroundOne;
+let backgroundNumber = 1;
+
+//Player
 let player;
 let playerX = 256;
 let playerY = 256;
-let ratX = 384;
-let ratY = 384;
-let chance;
-let bgNum = 1;
-let ratPeriod = 1000;
-let keyDownPeriod = 250;
+let keyDownPeriod = 150;
 let keyTimeNow;
 
+//Rat
 let rat;
+let ratX = 384;
+let ratY = 384;
+let ratPeriod = 1000;
 let ratTimeNow = 0;
 
+//States
 let up = false;
 let down = false;
 let right = false;
@@ -46,7 +50,7 @@ let state;
 
 
 function preload() {
-  bgOne = loadImage("assets/backroundOne.png");
+  backgroundOne = loadImage("assets/backroundOne.png");
   player = loadImage("assets/player.png");
   rat = loadImage("assets/rat.png");
 }
@@ -58,6 +62,83 @@ function setup() {
 
 function ratMovement() {
   let chance = Math.ceil(random(0, 4));
+  if (ratX !== playerX && ratY !== playerY) {
+    if (millis() >= ratTimeNow + ratPeriod) {
+      if (chance === 1) {
+        if (ratY > 32) {
+          ratY = ratY - 32;
+        }
+      }
+      else if (chance === 2) {
+        if (ratY < 448) {
+          ratY = ratY + 32;
+        }
+      }
+      else if (chance === 3) {
+        if (ratX < 480) {
+          ratX = ratX + 32;
+        }
+      }
+      else if (chance === 4) {
+        if (ratX > 32) {
+          ratX = ratX - 32;
+        }
+      }
+      ratTimeNow = millis();
+    }
+  }
+  else if (ratX === playerX && ratY !== playerY) {
+    if (millis() >= ratTimeNow + ratPeriod) {
+      if (chance === 1) {
+        if (ratY > 32) {
+          ratY = ratY - 32;
+        }
+      }
+      else if (chance === 2) {
+        if (ratY < 448) {
+          ratY = ratY + 32;
+        }
+      }
+      else if (chance === 3) {
+        if (ratX < 480) {
+          ratX = ratX + 32;
+        }
+      }
+      else if (chance === 4) {
+        if (ratX > 32) {
+          ratX = ratX - 32;
+        }
+      }
+      ratTimeNow = millis();
+    }
+  }
+  else if (ratX !== playerX && ratY === playerY) {
+    if (millis() >= ratTimeNow + ratPeriod) {
+      if (chance === 1) {
+        if (ratY > 32) {
+          ratY = ratY - 32;
+        }
+      }
+      else if (chance === 2) {
+        if (ratY < 448) {
+          ratY = ratY + 32;
+        }
+      }
+      else if (chance === 3) {
+        if (ratX < 480) {
+          ratX = ratX + 32;
+        }
+      }
+      else if (chance === 4) {
+        if (ratX > 32) {
+          ratX = ratX - 32;
+        }
+      }
+      ratTimeNow = millis();
+    }
+  }
+
+
   if (chance === 1) {
     if (ratY > 32) {
       ratY = ratY - 32;
@@ -81,10 +162,6 @@ function ratMovement() {
 }
 
 function keyPressed() {
-
-
-
-
   //Movement Keys
   if (keyCode === UP_ARROW || key === "w") {
     if (playerY > 32) {
@@ -162,34 +239,29 @@ function movement() {
   }
 }
 
-// function states(){
-//   if (state === "battle") {
-//   }
-// }
-
-
 function draw() {
-  movement();
-  background(bgOne);
+  background(backgroundOne);
   image(player, playerX, playerY, 32, 32);
   image(rat, ratX, ratY, 32, 32);
+  ratMovement();
+  movement();
 
-  if (ratX !== playerX && ratY !== playerY) {
-    if (millis() >= ratTimeNow + ratPeriod) {
-      ratMovement();
-      ratTimeNow = millis();
-    }
-  }
-  else if (ratX === playerX && ratY !== playerY) {
-    if (millis() >= ratTimeNow + ratPeriod) {
-      ratMovement();
-      ratTimeNow = millis();
-    }
-  }
-  else if (ratX !== playerX && ratY === playerY) {
-    if (millis() >= ratTimeNow + ratPeriod) {
-      ratMovement();
-      ratTimeNow = millis();
-    }
-  }
+  // if (ratX !== playerX && ratY !== playerY) {
+  //   if (millis() >= ratTimeNow + ratPeriod) {
+  //     ratMovement();
+  //     ratTimeNow = millis();
+  //   }
+  // }
+  // else if (ratX === playerX && ratY !== playerY) {
+  //   if (millis() >= ratTimeNow + ratPeriod) {
+  //     ratMovement();
+  //     ratTimeNow = millis();
+  //   }
+  // }
+  // else if (ratX !== playerX && ratY === playerY) {
+  //   if (millis() >= ratTimeNow + ratPeriod) {
+  //     ratMovement();
+  //     ratTimeNow = millis();
+  //   }
+  // }
 }
