@@ -26,6 +26,18 @@ let alchemy = 15;
 let backgroundOne;
 let backgroundNumber = 1;
 
+//Races
+let argonian;
+let breton;
+let darkElf;
+let highElf;
+let imperial;
+let khajiit;
+let nord;
+let orc;
+let redguard;
+let woodElf;
+
 //Player
 let player;
 let playerX = 256;
@@ -46,16 +58,48 @@ let down = false;
 let right = false;
 let left = false;
 let state;
+let oblivionFont;
 
 function preload() {
+  //backgrounds
   backgroundOne = loadImage("assets/backroundOne.png");
+
+  //races
+  argonian = loadImage("assets/argonian.png");
+  breton = loadImage("assets/breton.png");
+  darkElf = loadImage("assets/darkElf.png");
+  highElf = loadImage("assets/highElf.png");
+  imperial = loadImage("assets/imperial.png");
+  khajiit = loadImage("assets/khajiit.png");
+  nord = loadImage("assets/nord.png");
+  orc = loadImage("assets/orc.png");
+  redguard = loadImage("assets/redguard.png");
+  woodElf = loadImage("assets/woodElf.png");
+
   player = loadImage("assets/player.png");
+  //enemys
   rat = loadImage("assets/rat.png");
+  //fonts
+  oblivionFont = loadFont("assets/oblivion.ttf");
 }
 
 function setup() {
   createCanvas(512, 512);
   frameRate(30);
+}
+
+function characterSelect() {
+  image(argonian, 96, 0, 32, 32);
+  image(breton, 128, 0, 32, 32);
+  image(darkElf,);
+  image(highElf,);
+  image(imperial,);
+  image(khajiit,);
+  image(nord,);
+  image(orc,);
+  image(redguard,);
+  image(woodElf,);
+
 }
 
 function ratMovement() {
@@ -64,15 +108,18 @@ function ratMovement() {
     if (ratY > 32) {
       ratY = ratY - 32;
     }
-  } else if (chance === 2) {
+  }
+  else if (chance === 2) {
     if (ratY < 448) {
       ratY = ratY + 32;
     }
-  } else if (chance === 3) {
+  }
+  else if (chance === 3) {
     if (ratX < 480) {
       ratX = ratX + 32;
     }
-  } else if (chance === 4) {
+  }
+  else if (chance === 4) {
     if (ratX > 32) {
       ratX = ratX - 32;
     }
@@ -156,6 +203,7 @@ function movement() {
 function draw() {
   movement();
   background(backgroundOne);
+
   image(player, playerX, playerY, 32, 32);
   image(rat, ratX, ratY, 32, 32);
 
@@ -164,12 +212,14 @@ function draw() {
       ratMovement();
       ratTimeNow = millis();
     }
-  } else if (ratX === playerX && ratY !== playerY) {
+  }
+  else if (ratX === playerX && ratY !== playerY) {
     if (millis() >= ratTimeNow + ratPeriod) {
       ratMovement();
       ratTimeNow = millis();
     }
-  } else if (ratX !== playerX && ratY === playerY) {
+  }
+  else if (ratX !== playerX && ratY === playerY) {
     if (millis() >= ratTimeNow + ratPeriod) {
       ratMovement();
       ratTimeNow = millis();
