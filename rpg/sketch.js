@@ -32,13 +32,21 @@ let argonianDescription;
 let breton;
 let bretonDescription;
 let darkElf;
+let darkElfDescription;
 let highElf;
+let highElfDescription;
 let imperial;
+let imperialDescription;
 let khajiit;
+let khajiitDescription;
 let nord;
+let nordDescription;
 let orc;
+let orcDescription;
 let redguard;
+let redguardDescription;
 let woodElf;
+let woodElfDescription;
 
 //Player
 let player;
@@ -101,27 +109,53 @@ function setup() {
 function characterSelect() {
   background("black");
   //description
-  argonianDescription = "This reptilian race, well-suited for the treacherous swamps of their Black Marsh homeland, has developed a natural resistance to diseases and the ability to breathe underwater. They can call upon the Histskin to regenerate health very quickly.";
-  bretonDescription = "In addition to their quick and perceptive grasp of spellcraft, even the humblest of High Rock's Bretons can boast a resistance to magic. Bretons can call upon the Dragonskin power to absorb spells.";
+  argonianDescription =
+    "This reptilian race, well-suited for the treacherous swamps of their Black Marsh homeland, has developed a natural resistance to diseases and the ability to breathe underwater. They can call upon the Histskin to regenerate health very quickly.";
+  bretonDescription =
+    "In addition to their quick and perceptive grasp of spellcraft, even the humblest of High Rock's Bretons can boast a resistance to magic. Bretons can call upon the Dragonskin power to absorb spells.";
+  darkElfDescription =
+    "Also known as 'Dunmer' in their homeland of Morrowind, dark elves are noted for their stealth and magic skills. They are naturally resistant to fire and can call upon their Ancestor's Wrath to surround themselves in fire.";
+  highElfDescription =
+    "Also known as 'Altmer' in their homeland of Summerset Isle, the high elves are the most strongly gifted in the arcane arts of all the races. They can call upon their Highborn power to regenerate Magicka quickly.";
+  imperialDescription =
+    "Natives of Cyrodiil, they have proved to be shrewd diplomats and traders. They are skilled with combat and magic. Anywhere gold coins might be found, Imperials always seem to find a few more. They can call upon the Voice of the Emperor to calm an enemy.";
+  khajiitDescription =
+    "Hailing from the province of Elsweyr, they are intelligent, quick, and agile. They make excellent thieves due to their natural stealthiness. All Khajiit can see in the dark at will and have unarmed claw attacks.";
+  nordDescription =
+    "Citizens of Skyrim, they are a tall and fair-haired people. Strong and hardy, Nords are famous for their resistance to cold and their talent as warriors. They can use a Battlecry to make opponents flee.";
+  orcDescription =
+    "The people of the Wrothgarian and Dragontail Mountains, Orcish smiths are prized for their craftsmanship. Orc troops in Heavy Armor are among the finest in the Empire, and are fearsome when using their Berserker Rage.";
+  redguardDescription =
+    "The most naturally talented warriors in Tamriel, the Redguards of Hammerfell have a hardy constitution and a natural resistance to poison. They can call upon an Adrenaline Rush in combat.";
+  woodElfDescription =
+    "The clanfolk of the Western Valenwood forests, also known as 'Bosmer'. Wood elves make good scouts and thieves, and there are no finer archers in all of Tamriel. They have natural resistances to both poisons and diseases. They can Command Animals to fight for them.";
 
   image(argonian, 96, characterSize, characterSize, characterSize);
   image(breton, 128, characterSize, characterSize, characterSize);
-  image(darkElf,160, characterSize, characterSize, characterSize);
-  image(highElf,192, characterSize, characterSize, characterSize);
-  image(imperial,224, characterSize, characterSize, characterSize);
-  image(khajiit,256, characterSize, characterSize, characterSize);
-  image(nord,288, characterSize, characterSize, characterSize);
-  image(orc,320, characterSize, characterSize, characterSize);
-  image(redguard,352, characterSize, characterSize, characterSize);
-  image(woodElf,384, characterSize, characterSize, characterSize);
+  image(darkElf, 160, characterSize, characterSize, characterSize);
+  image(highElf, 192, characterSize, characterSize, characterSize);
+  image(imperial, 224, characterSize, characterSize, characterSize);
+  image(khajiit, 256, characterSize, characterSize, characterSize);
+  image(nord, 288, characterSize, characterSize, characterSize);
+  image(orc, 320, characterSize, characterSize, characterSize);
+  image(redguard, 352, characterSize, characterSize, characterSize);
+  image(woodElf, 384, characterSize, characterSize, characterSize);
 
-  if (mouseX > 96 && mouseX < 128  && mouseY > 32 && mouseY < 64 ){
+  if (mouseX > 96 && mouseX < 128 && mouseY > 32 && mouseY < 64) {
     fill("white");
     text(argonianDescription, 32, 384, 448, 448);
   }
-  if (mouseX > 128 && mouseX < 160  && mouseY > 32 && mouseY < 64 ){
+  if (mouseX > 128 && mouseX < 160 && mouseY > 32 && mouseY < 64) {
     fill("white");
     text(bretonDescription, 32, 384, 448, 448);
+  }
+  if (mouseX > 160 && mouseX < 192 && mouseY > 32 && mouseY < 64) {
+    fill("white");
+    text(darkElfDescription, 32, 384, 448, 448);
+  }
+  if (mouseX > 192 && mouseX < 224 && mouseY > 32 && mouseY < 64) {
+    fill("white");
+    text(highElfDescription, 32, 384, 448, 448);
   }
 }
 
@@ -131,18 +165,15 @@ function ratMovement() {
     if (ratY > characterSize) {
       ratY = ratY - characterSize;
     }
-  }
-  else if (chance === 2) {
+  } else if (chance === 2) {
     if (ratY < 448) {
       ratY = ratY + characterSize;
     }
-  }
-  else if (chance === 3) {
+  } else if (chance === 3) {
     if (ratX < 480) {
       ratX = ratX + characterSize;
     }
-  }
-  else if (chance === 4) {
+  } else if (chance === 4) {
     if (ratX > characterSize) {
       ratX = ratX - characterSize;
     }
@@ -236,14 +267,12 @@ function draw() {
       ratMovement();
       ratTimeNow = millis();
     }
-  }
-  else if (ratX === playerX && ratY !== playerY) {
+  } else if (ratX === playerX && ratY !== playerY) {
     if (millis() >= ratTimeNow + ratPeriod) {
       ratMovement();
       ratTimeNow = millis();
     }
-  }
-  else if (ratX !== playerX && ratY === playerY) {
+  } else if (ratX !== playerX && ratY === playerY) {
     if (millis() >= ratTimeNow + ratPeriod) {
       ratMovement();
       ratTimeNow = millis();
