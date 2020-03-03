@@ -28,7 +28,9 @@ let backgroundNumber = 1;
 
 //Races
 let argonian;
+let argonianDescription;
 let breton;
+let bretonDescription;
 let darkElf;
 let highElf;
 let imperial;
@@ -58,7 +60,13 @@ let down = false;
 let right = false;
 let left = false;
 let state;
+
+//Fonts
 let oblivionFont;
+let mainFont;
+
+//constants
+let characterSize = 32;
 
 function preload() {
   //backgrounds
@@ -81,47 +89,62 @@ function preload() {
   rat = loadImage("assets/rat.png");
   //fonts
   oblivionFont = loadFont("assets/oblivion.ttf");
+  mainFont = loadFont("assets/8bit.ttf");
 }
 
 function setup() {
   createCanvas(512, 512);
   frameRate(30);
+  textFont(mainFont);
 }
 
 function characterSelect() {
-  image(argonian, 96, 0, 32, 32);
-  image(breton, 128, 0, 32, 32);
-  image(darkElf,);
-  image(highElf,);
-  image(imperial,);
-  image(khajiit,);
-  image(nord,);
-  image(orc,);
-  image(redguard,);
-  image(woodElf,);
+  background("black");
+  //description
+  argonianDescription = "This reptilian race, well-suited for the treacherous swamps of their Black Marsh homeland, has developed a natural resistance to diseases and the ability to breathe underwater. They can call upon the Histskin to regenerate health very quickly.";
+  bretonDescription = "In addition to their quick and perceptive grasp of spellcraft, even the humblest of High Rock's Bretons can boast a resistance to magic. Bretons can call upon the Dragonskin power to absorb spells.";
 
+  image(argonian, 96, characterSize, characterSize, characterSize);
+  image(breton, 128, characterSize, characterSize, characterSize);
+  image(darkElf,160, characterSize, characterSize, characterSize);
+  image(highElf,192, characterSize, characterSize, characterSize);
+  image(imperial,224, characterSize, characterSize, characterSize);
+  image(khajiit,256, characterSize, characterSize, characterSize);
+  image(nord,288, characterSize, characterSize, characterSize);
+  image(orc,320, characterSize, characterSize, characterSize);
+  image(redguard,352, characterSize, characterSize, characterSize);
+  image(woodElf,384, characterSize, characterSize, characterSize);
+
+  if (mouseX > 96 && mouseX < 128  && mouseY > 32 && mouseY < 64 ){
+    fill("white");
+    text(argonianDescription, 32, 384, 448, 448);
+  }
+  if (mouseX > 128 && mouseX < 160  && mouseY > 32 && mouseY < 64 ){
+    fill("white");
+    text(bretonDescription, 32, 384, 448, 448);
+  }
 }
 
 function ratMovement() {
   let chance = Math.ceil(random(0, 4));
   if (chance === 1) {
-    if (ratY > 32) {
-      ratY = ratY - 32;
+    if (ratY > characterSize) {
+      ratY = ratY - characterSize;
     }
   }
   else if (chance === 2) {
     if (ratY < 448) {
-      ratY = ratY + 32;
+      ratY = ratY + characterSize;
     }
   }
   else if (chance === 3) {
     if (ratX < 480) {
-      ratX = ratX + 32;
+      ratX = ratX + characterSize;
     }
   }
   else if (chance === 4) {
-    if (ratX > 32) {
-      ratX = ratX - 32;
+    if (ratX > characterSize) {
+      ratX = ratX - characterSize;
     }
   }
 }
@@ -170,26 +193,26 @@ function movement() {
     left = false;
   }
   if (up === true && millis() >= keyTimeNow + keyDownPeriod) {
-    if (playerY > 32) {
-      playerY -= 32;
+    if (playerY > characterSize) {
+      playerY -= characterSize;
       keyTimeNow = millis();
     }
   }
   if (down === true && millis() >= keyTimeNow + keyDownPeriod) {
     if (playerY < 448) {
-      playerY += 32;
+      playerY += characterSize;
       keyTimeNow = millis();
     }
   }
   if (right === true && millis() >= keyTimeNow + keyDownPeriod) {
     if (playerX < 480) {
-      playerX += 32;
+      playerX += characterSize;
       keyTimeNow = millis();
     }
   }
   if (left === true && millis() >= keyTimeNow + keyDownPeriod) {
-    if (playerX > 32) {
-      playerX -= 32;
+    if (playerX > characterSize) {
+      playerX -= characterSize;
       keyTimeNow = millis();
     }
   }
@@ -204,8 +227,9 @@ function draw() {
   movement();
   background(backgroundOne);
 
-  image(player, playerX, playerY, 32, 32);
-  image(rat, ratX, ratY, 32, 32);
+  image(player, playerX, playerY, characterSize, characterSize);
+  image(rat, ratX, ratY, characterSize, characterSize);
+  characterSelect();
 
   if (ratX !== playerX && ratY !== playerY) {
     if (millis() >= ratTimeNow + ratPeriod) {
