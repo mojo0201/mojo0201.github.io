@@ -157,6 +157,30 @@ function characterSelect() {
     fill("white");
     text(highElfDescription, 32, 384, 448, 448);
   }
+  if (mouseX > 224 && mouseX < 256 && mouseY > 32 && mouseY < 64) {
+    fill("white");
+    text(imperialDescription, 32, 384, 448, 448);
+  } 
+  if (mouseX > 256 && mouseX < 288 && mouseY > 32 && mouseY < 64) {
+    fill("white");
+    text(khajiitDescription, 32, 384, 448, 448);
+  }  
+  if (mouseX > 288 && mouseX < 320 && mouseY > 32 && mouseY < 64) {
+    fill("white");
+    text(nordDescription, 32, 384, 448, 448);
+  }
+  if (mouseX > 320 && mouseX < 352 && mouseY > 32 && mouseY < 64) {
+    fill("white");
+    text(orcDescription, 32, 384, 448, 448);
+  }
+  if (mouseX > 352 && mouseX < 384 && mouseY > 32 && mouseY < 64) {
+    fill("white");
+    text(redguardDescription, 32, 384, 448, 448);
+  }
+  if (mouseX > 384 && mouseX < 416 && mouseY > 32 && mouseY < 64) {
+    fill("white");
+    text(woodElf, 32, 384, 448, 448);
+  }
 }
 
 function ratMovement() {
