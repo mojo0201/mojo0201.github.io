@@ -143,43 +143,53 @@ function characterSelect() {
 
   if (mouseX > 96 && mouseX < 128 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    textSize(14);
     text(argonianDescription, 32, 384, 448, 448);
   }
   if (mouseX > 128 && mouseX < 160 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    textSize(14);
     text(bretonDescription, 32, 384, 448, 448);
   }
   if (mouseX > 160 && mouseX < 192 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    textSize(14);
     text(darkElfDescription, 32, 384, 448, 448);
   }
   if (mouseX > 192 && mouseX < 224 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    textSize(14);
     text(highElfDescription, 32, 384, 448, 448);
   }
   if (mouseX > 224 && mouseX < 256 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    textSize(14);
     text(imperialDescription, 32, 384, 448, 448);
   } 
   if (mouseX > 256 && mouseX < 288 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    textSize(14);
     text(khajiitDescription, 32, 384, 448, 448);
   }  
   if (mouseX > 288 && mouseX < 320 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    textSize(14);
     text(nordDescription, 32, 384, 448, 448);
   }
   if (mouseX > 320 && mouseX < 352 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    textSize(14);
     text(orcDescription, 32, 384, 448, 448);
   }
   if (mouseX > 352 && mouseX < 384 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    textSize(14);
     text(redguardDescription, 32, 384, 448, 448);
   }
   if (mouseX > 384 && mouseX < 416 && mouseY > 32 && mouseY < 64) {
     fill("white");
-    text(woodElf, 32, 384, 448, 448);
+    textSize(14);
+    text(woodElfDescription, 32, 384, 448, 448);
   }
 }
 
