@@ -135,83 +135,121 @@ function characterSelect() {
     fill("white");
     //Name and Description
     textSize(20);
-    text("The Argonian", 32, 342, 448, 384);
+    text("The Argonian", 32, 300, 448, 384);
     textSize(14);
     text(argonianDescription, 32, 384, 448, 448);
     //Stat Increases
-    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 256, 256, 300, 300);
+    text("Stat Increases", 32, 345);
+    textSize(12);   
+    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
   }
   if (mouseX > 128 && mouseX < 160 && mouseY > 32 && mouseY < 64) {
     fill("white");
     //Name and Description
     textSize(20);
-    text("The Breton", 32, 342, 448, 384);
+    text("The Breton", 32, 300, 448, 384);
     textSize(14);
     text(bretonDescription, 32, 384, 448, 448);
+    //Stat Increases
+    text("Stat Increases", 32, 345);
+    textSize(12);
+    text("10 Conjuration 5 Speech 5 Alchemy 5 Illusion 5 Restoration 5 Alteration", 32, 365);
   }
   if (mouseX > 160 && mouseX < 192 && mouseY > 32 && mouseY < 64) {
     fill("white");
     //Name and Description
     textSize(20);
-    text("The Dark Elf", 32, 342, 448, 384);
+    text("The Dark Elf", 32, 300, 448, 384);
     textSize(14);
     text(darkElfDescription, 32, 384, 448, 448);
+    //Stat Increases
+    text("Stat Increases", 32, 345);
+    textSize(12);
+    text("10 Destruction 5 Sneak 5 Alchemy 5 Light Armor 5 Illusion", 32, 365);
   }
   if (mouseX > 192 && mouseX < 224 && mouseY > 32 && mouseY < 64) {
     fill("white");
     //Name and Description
     textSize(20);
-    text("The High Elf", 32, 342, 448, 384);
+    text("The High Elf", 32, 300, 448, 384);
     textSize(14);
     text(highElfDescription, 32, 384, 448, 448);
+    //Stat Increases
+    text("Stat Increases", 32, 345);
+    textSize(12);
+    text("10 Illusion 5 Destruction 5 Cojuration 5 Alteration 5 Restoration 5 Enchanting", 32, 365);
   }
   if (mouseX > 224 && mouseX < 256 && mouseY > 32 && mouseY < 64) {
     fill("white");
     //Name and Description
     textSize(20);
-    text("The Imperial", 32, 342, 448, 384);
+    text("The Imperial", 32, 300, 448, 384);
     textSize(14);
     text(imperialDescription, 32, 384, 448, 448);
+    //Stat Increases
+    text("Stat Increases", 32, 345);
+    textSize(12);
+    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
   }
   if (mouseX > 256 && mouseX < 288 && mouseY > 32 && mouseY < 64) {
     fill("white");
     //Name and Description
     textSize(20);
-    text("The Khajiit", 32, 342, 448, 384);
+    text("The Khajiit", 32, 300, 448, 384);
     textSize(14);
     text(khajiitDescription, 32, 384, 448, 448);
+    //Stat Increases
+    text("Stat Increases", 32, 345);
+    textSize(12);
+    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
   }
   if (mouseX > 288 && mouseX < 320 && mouseY > 32 && mouseY < 64) {
     fill("white");
     //Name and Description
     textSize(20);
-    text("The Nord", 32, 342, 448, 384);
+    text("The Nord", 32, 300, 448, 384);
     textSize(14);
     text(nordDescription, 32, 384, 448, 448);
+    //Stat Increases
+    text("Stat Increases", 32, 345);
+    textSize(12);
+    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
   }
   if (mouseX > 320 && mouseX < 352 && mouseY > 32 && mouseY < 64) {
     fill("white");
     //Name and Description
     textSize(20);
-    text("The Orsimer", 32, 342, 448, 384);
+    text("The Orsimer", 32, 300, 448, 384);
     textSize(14);
     text(orcDescription, 32, 384, 448, 448);
+    //Stat Increases
+    text("Stat Increases", 32, 345);
+    textSize(12);
+    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
   }
   if (mouseX > 352 && mouseX < 384 && mouseY > 32 && mouseY < 64) {
     fill("white");
     //Name and Description
     textSize(20);
-    text("The Redguard", 32, 342, 448, 384);
+    text("The Redguard", 32, 300, 448, 384);
     textSize(14);
     text(redguardDescription, 32, 384, 448, 448);
+    //Stat Increases
+    text("Stat Increases", 32, 345);
+    textSize(12);
+    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
   }
   if (mouseX > 384 && mouseX < 416 && mouseY > 32 && mouseY < 64) {
     fill("white");
     //Name and Description
     textSize(20);
-    text("The Wood Elf", 32, 342, 448, 384);
+    text("The Wood Elf", 32, 300, 448, 384);
     textSize(14);
     text(woodElfDescription, 32, 384, 448, 448);
+    //Stat Increases
+    text("Stat Increases", 32, 345);
+    textSize(12);
+    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
   }
 }
 
@@ -226,12 +264,12 @@ function ratMovement() {
     if (ratY < 448) {
       ratY = ratY + characterSize;
     }
-  } 
+  }
   else if (chance === 3) {
     if (ratX < 480) {
       ratX = ratX + characterSize;
     }
-  } 
+  }
   else if (chance === 4) {
     if (ratX > characterSize) {
       ratX = ratX - characterSize;
