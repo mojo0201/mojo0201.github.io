@@ -28,25 +28,15 @@ let backgroundNumber = 1;
 
 //Races
 let argonian;
-let argonianDescription;
 let breton;
-let bretonDescription;
 let darkElf;
-let darkElfDescription;
 let highElf;
-let highElfDescription;
 let imperial;
-let imperialDescription;
 let khajiit;
-let khajiitDescription;
 let nord;
-let nordDescription;
 let orc;
-let orcDescription;
 let redguard;
-let redguardDescription;
 let woodElf;
-let woodElfDescription;
 
 //Player
 let player;
@@ -109,25 +99,25 @@ function setup() {
 function characterSelect() {
   background("black");
   //description
-  argonianDescription =
+  let argonianDescription =
     "This reptilian race, well-suited for the treacherous swamps of their Black Marsh homeland, has developed a natural resistance to diseases and the ability to breathe underwater. They can call upon the Histskin to regenerate health very quickly.";
-  bretonDescription =
+  let bretonDescription =
     "In addition to their quick and perceptive grasp of spellcraft, even the humblest of High Rock's Bretons can boast a resistance to magic. Bretons can call upon the Dragonskin power to absorb spells.";
-  darkElfDescription =
+  let darkElfDescription =
     "Also known as 'Dunmer' in their homeland of Morrowind, dark elves are noted for their stealth and magic skills. They are naturally resistant to fire and can call upon their Ancestor's Wrath to surround themselves in fire.";
-  highElfDescription =
+  let highElfDescription =
     "Also known as 'Altmer' in their homeland of Summerset Isle, the high elves are the most strongly gifted in the arcane arts of all the races. They can call upon their Highborn power to regenerate Magicka quickly.";
-  imperialDescription =
+  let imperialDescription =
     "Natives of Cyrodiil, they have proved to be shrewd diplomats and traders. They are skilled with combat and magic. Anywhere gold coins might be found, Imperials always seem to find a few more. They can call upon the Voice of the Emperor to calm an enemy.";
-  khajiitDescription =
+  let khajiitDescription =
     "Hailing from the province of Elsweyr, they are intelligent, quick, and agile. They make excellent thieves due to their natural stealthiness. All Khajiit can see in the dark at will and have unarmed claw attacks.";
-  nordDescription =
+  let nordDescription =
     "Citizens of Skyrim, they are a tall and fair-haired people. Strong and hardy, Nords are famous for their resistance to cold and their talent as warriors. They can use a Battlecry to make opponents flee.";
-  orcDescription =
+  let orcDescription =
     "The people of the Wrothgarian and Dragontail Mountains, Orcish smiths are prized for their craftsmanship. Orc troops in Heavy Armor are among the finest in the Empire, and are fearsome when using their Berserker Rage.";
-  redguardDescription =
+  let redguardDescription =
     "The most naturally talented warriors in Tamriel, the Redguards of Hammerfell have a hardy constitution and a natural resistance to poison. They can call upon an Adrenaline Rush in combat.";
-  woodElfDescription =
+  let woodElfDescription =
     "The clanfolk of the Western Valenwood forests, also known as 'Bosmer'. Wood elves make good scouts and thieves, and there are no finer archers in all of Tamriel. They have natural resistances to both poisons and diseases. They can Command Animals to fight for them.";
 
   image(argonian, 96, characterSize, characterSize, characterSize);
@@ -143,51 +133,83 @@ function characterSelect() {
 
   if (mouseX > 96 && mouseX < 128 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    //Name and Description
+    textSize(20)
+    text("The Argonian", 32, 342, 448, 384)
     textSize(14);
     text(argonianDescription, 32, 384, 448, 448);
+    //Stat Increases
+    text("+10 Lockpicking +5 Sneak +5 Light Armor +5 Pickpocket +5 Restoration", 256, 256, 300, 300);
   }
   if (mouseX > 128 && mouseX < 160 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    //Name and Description
+    textSize(20)
+    text("The Breton", 32, 342, 448, 384)
     textSize(14);
     text(bretonDescription, 32, 384, 448, 448);
   }
   if (mouseX > 160 && mouseX < 192 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    //Name and Description
+    textSize(20)
+    text("The Dark Elf", 32, 342, 448, 384)
     textSize(14);
     text(darkElfDescription, 32, 384, 448, 448);
   }
   if (mouseX > 192 && mouseX < 224 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    //Name and Description
+    textSize(20)
+    text("The High Elf", 32, 342, 448, 384)
     textSize(14);
     text(highElfDescription, 32, 384, 448, 448);
   }
   if (mouseX > 224 && mouseX < 256 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    //Name and Description
+    textSize(20)
+    text("The Imperial", 32, 342, 448, 384)
     textSize(14);
     text(imperialDescription, 32, 384, 448, 448);
-  } 
+  }
   if (mouseX > 256 && mouseX < 288 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    //Name and Description
+    textSize(20)
+    text("The Khajiit", 32, 342, 448, 384)
     textSize(14);
     text(khajiitDescription, 32, 384, 448, 448);
-  }  
+  }
   if (mouseX > 288 && mouseX < 320 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    //Name and Description
+    textSize(20)
+    text("The Nord", 32, 342, 448, 384)
     textSize(14);
     text(nordDescription, 32, 384, 448, 448);
   }
   if (mouseX > 320 && mouseX < 352 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    //Name and Description
+    textSize(20)
+    text("The Orsimer", 32, 342, 448, 384)
     textSize(14);
     text(orcDescription, 32, 384, 448, 448);
   }
   if (mouseX > 352 && mouseX < 384 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    //Name and Description
+    textSize(20)
+    text("The Redguard", 32, 342, 448, 384)
     textSize(14);
     text(redguardDescription, 32, 384, 448, 448);
   }
   if (mouseX > 384 && mouseX < 416 && mouseY > 32 && mouseY < 64) {
     fill("white");
+    //Name and Description
+    textSize(20)
+    text("The Wood Elf", 32, 342, 448, 384)
     textSize(14);
     text(woodElfDescription, 32, 384, 448, 448);
   }
