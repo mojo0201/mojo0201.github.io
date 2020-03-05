@@ -189,7 +189,7 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
+    text("10 Restoration 5 Enchanting 5 Heavy Armor 5 One-Handed 5 Block 5 Destruction", 32, 365);
   }
   if (mouseX > 256 && mouseX < 288 && mouseY > 32 && mouseY < 64) {
     fill("white");
@@ -201,7 +201,7 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
+    text("10 Sneak 5 Lockpicking 5 Archery 5 Pickpocket 5 One-Handed 5 Alchemy", 32, 365);
   }
   if (mouseX > 288 && mouseX < 320 && mouseY > 32 && mouseY < 64) {
     fill("white");
@@ -213,7 +213,7 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
+    text("10 Two-Handed 5 Smithing 5 Block 5 Light Armor 5 One-Handed 5 Speech", 32, 365);
   }
   if (mouseX > 320 && mouseX < 352 && mouseY > 32 && mouseY < 64) {
     fill("white");
@@ -225,7 +225,7 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
+    text("10 Heavy Armor 5 Smithing 5 One-Handed 5 Block 5 Enchanting 5 Two-Handed", 32, 365);
   }
   if (mouseX > 352 && mouseX < 384 && mouseY > 32 && mouseY < 64) {
     fill("white");
@@ -237,7 +237,7 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
+    text("10 One-Handed 5 Archery 5 Block 5 Smithing 5 Destruction 5 Alteration", 32, 365);
   }
   if (mouseX > 384 && mouseX < 416 && mouseY > 32 && mouseY < 64) {
     fill("white");
@@ -249,7 +249,7 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
+    text("10 Archery 5 Sneak 5 Alchemy 5 Lockpicking 5 Pickpocket 5 Light Armor", 32, 365);
   }
 }
 
