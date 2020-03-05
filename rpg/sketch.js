@@ -144,15 +144,6 @@ function characterSelect() {
 
   if (mouseX > 96 && mouseX < 128 && mouseY > 32 && mouseY < 64) {
     overArgonian = true;
-    overBreton = false;
-    overDarkElf = false;
-    overHighElf = false;
-    overImperial = false;
-    overKhajiit = false;
-    overNord = false;
-    overOrc = false;
-    overRedguard = false;
-    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -173,15 +164,6 @@ function characterSelect() {
 
   if (mouseX > 128 && mouseX < 160 && mouseY > 32 && mouseY < 64) {
     overBreton = true;
-    overArgonian = false;
-    overDarkElf = false;
-    overHighElf = false;
-    overImperial = false;
-    overKhajiit = false;
-    overNord = false;
-    overOrc = false;
-    overRedguard = false;
-    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -202,15 +184,6 @@ function characterSelect() {
 
   if (mouseX > 160 && mouseX < 192 && mouseY > 32 && mouseY < 64) {
     overDarkElf = true;
-    overArgonian = false;
-    overBreton = false;
-    overHighElf = false;
-    overImperial = false;
-    overKhajiit = false;
-    overNord = false;
-    overOrc = false;
-    overRedguard = false;
-    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -227,15 +200,6 @@ function characterSelect() {
 
   if (mouseX > 192 && mouseX < 224 && mouseY > 32 && mouseY < 64) {
     overHighElf = true;
-    overArgonian = false;
-    overBreton = false;
-    overDarkElf = false;
-    overImperial = false;
-    overKhajiit = false;
-    overNord = false;
-    overOrc = false;
-    overRedguard = false;
-    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -256,15 +220,6 @@ function characterSelect() {
 
   if (mouseX > 224 && mouseX < 256 && mouseY > 32 && mouseY < 64) {
     overImperial = true;
-    overArgonian = false;
-    overBreton = false;
-    overDarkElf = false;
-    overHighElf = false;
-    overKhajiit = false;
-    overNord = false;
-    overOrc = false;
-    overRedguard = false;
-    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -285,15 +240,6 @@ function characterSelect() {
 
   if (mouseX > 256 && mouseX < 288 && mouseY > 32 && mouseY < 64) {
     overKhajiit = true;
-    overArgonian = false;
-    overBreton = false;
-    overDarkElf = false;
-    overHighElf = false;
-    overImperial = false;
-    overNord = false;
-    overOrc = false;
-    overRedguard = false;
-    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -314,15 +260,6 @@ function characterSelect() {
 
   if (mouseX > 288 && mouseX < 320 && mouseY > 32 && mouseY < 64) {
     overNord = true;
-    overArgonian = false;
-    overBreton = false;
-    overDarkElf = false;
-    overHighElf = false;
-    overImperial = false;
-    overKhajiit = false;
-    overOrc = false;
-    overRedguard = false;
-    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -343,15 +280,6 @@ function characterSelect() {
 
   if (mouseX > 320 && mouseX < 352 && mouseY > 32 && mouseY < 64) {
     overOrc = true;
-    overArgonian = false;
-    overBreton = false;
-    overDarkElf = false;
-    overHighElf = false;
-    overImperial = false;
-    overKhajiit = false;
-    overNord = false;
-    overRedguard = false;
-    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -372,15 +300,6 @@ function characterSelect() {
 
   if (mouseX > 352 && mouseX < 384 && mouseY > 32 && mouseY < 64) {
     overRedguard = true;
-    overArgonian = false;
-    overBreton = false;
-    overDarkElf = false;
-    overHighElf = false;
-    overImperial = false;
-    overKhajiit = false;
-    overNord = false;
-    overOrc = false;
-    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -401,15 +320,6 @@ function characterSelect() {
 
   if (mouseX > 384 && mouseX < 416 && mouseY > 32 && mouseY < 64) {
     overWoodElf = true;
-    overArgonian = false;
-    overBreton = false;
-    overDarkElf = false;
-    overHighElf = false;
-    overImperial = false;
-    overKhajiit = false;
-    overNord = false;
-    overOrc = false;
-    overRedguard = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -426,6 +336,38 @@ function characterSelect() {
     );
   } else {
     overWoodElf = false;
+  }
+}
+function mousePressed(){
+  if(overArgonian){
+    player = argonian
+  }
+  if(overBreton){
+    player = argonian
+  }
+  if(overDarkElf){
+    player = argonian
+  }
+  if(overHighElf){
+    player = argonian
+  }
+  if(overImperial){
+    player = argonian
+  }
+  if(overKhajiit){
+    player = argonian
+  }
+  if(overNord){
+    player = argonian
+  }
+  if(overOrc){
+    player = argonian
+  }
+  if(overRedguard){
+    player = argonian
+  }
+  if(overWoodElf){
+    player = argonian
   }
 }
 
@@ -524,14 +466,14 @@ function movement() {
 //   }
 // }
 
-function draw() {
-  console.log(overArgonian);
+function draw(){
+  characterSelect();
   movement();
   background(backgroundOne);
 
   image(player, playerX, playerY, characterSize, characterSize);
   image(rat, ratX, ratY, characterSize, characterSize);
-  characterSelect();
+
 
   if (ratX !== playerX && ratY !== playerY) {
     if (millis() >= ratTimeNow + ratPeriod) {
