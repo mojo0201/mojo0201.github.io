@@ -24,7 +24,7 @@ let alchemy = 15;
 
 //Background Variables
 let backgroundOne;
-let backgroundNumber = 1;
+let backgroundNumber = 0;
 
 //Races
 let overArgonian = false;
@@ -108,266 +108,319 @@ function setup() {
 }
 
 function characterSelect() {
-  background("black");
-  //description
-  let argonianDescription =
-    "This reptilian race, well-suited for the treacherous swamps of their Black Marsh homeland, has developed a natural resistance to diseases and the ability to breathe underwater. They can call upon the Histskin to regenerate health very quickly.";
-  let bretonDescription =
-    "In addition to their quick and perceptive grasp of spellcraft, even the humblest of High Rocks Bretons can boast a resistance to magic. Bretons can call upon the Dragonskin power to absorb spells.";
-  let darkElfDescription =
-    "Also known as Dunmer in their homeland of Morrowind, dark elves are noted for their stealth and magic skills. They are naturally resistant to fire and can call upon their Ancestors Wrath to surround themselves in fire.";
-  let highElfDescription =
-    "Also known as Altmer in their homeland of Summerset Isle, the high elves are the most strongly gifted in the arcane arts of all the races. They can call upon their Highborn power to regenerate Magicka quickly.";
-  let imperialDescription =
-    "Natives of Cyrodiil, they have proved to be shrewd diplomats and traders. They are skilled with combat and magic. Anywhere gold coins might be found, Imperials always seem to find a few more. They can call upon the Voice of the Emperor to calm an enemy.";
-  let khajiitDescription =
-    "Hailing from the province of Elsweyr, they are intelligent, quick, and agile. They make excellent thieves due to their natural stealthiness. All Khajiit can see in the dark at will and have unarmed claw attacks.";
-  let nordDescription =
-    "Citizens of Skyrim, they are a tall and fair-haired people. Strong and hardy, Nords are famous for their resistance to cold and their talent as warriors. They can use a Battlecry to make opponents flee.";
-  let orcDescription =
-    "The people of the Wrothgarian and Dragontail Mountains, Orcish smiths are prized for their craftsmanship. Orc troops in Heavy Armor are among the finest in the Empire, and are fearsome when using their Berserker Rage.";
-  let redguardDescription =
-    "The most naturally talented warriors in Tamriel, the Redguards of Hammerfell have a hardy constitution and a natural resistance to poison. They can call upon an Adrenaline Rush in combat.";
-  let woodElfDescription =
-    "The clanfolk of the Western Valenwood forests, also known as Bosmer. Wood elves make good scouts and thieves, and there are no finer archers in all of Tamriel. They have natural resistances to both poisons and diseases. They can Command Animals to fight for them.";
+  if (backgroundNumber === 0) {
+    backgroundNumber = 0;
+    background("black");
+    //description
+    let argonianDescription =
+      "This reptilian race, well-suited for the treacherous swamps of their Black Marsh homeland, has developed a natural resistance to diseases and the ability to breathe underwater. They can call upon the Histskin to regenerate health very quickly.";
+    let bretonDescription =
+      "In addition to their quick and perceptive grasp of spellcraft, even the humblest of High Rocks Bretons can boast a resistance to magic. Bretons can call upon the Dragonskin power to absorb spells.";
+    let darkElfDescription =
+      "Also known as Dunmer in their homeland of Morrowind, dark elves are noted for their stealth and magic skills. They are naturally resistant to fire and can call upon their Ancestors Wrath to surround themselves in fire.";
+    let highElfDescription =
+      "Also known as Altmer in their homeland of Summerset Isle, the high elves are the most strongly gifted in the arcane arts of all the races. They can call upon their Highborn power to regenerate Magicka quickly.";
+    let imperialDescription =
+      "Natives of Cyrodiil, they have proved to be shrewd diplomats and traders. They are skilled with combat and magic. Anywhere gold coins might be found, Imperials always seem to find a few more. They can call upon the Voice of the Emperor to calm an enemy.";
+    let khajiitDescription =
+      "Hailing from the province of Elsweyr, they are intelligent, quick, and agile. They make excellent thieves due to their natural stealthiness. All Khajiit can see in the dark at will and have unarmed claw attacks.";
+    let nordDescription =
+      "Citizens of Skyrim, they are a tall and fair-haired people. Strong and hardy, Nords are famous for their resistance to cold and their talent as warriors. They can use a Battlecry to make opponents flee.";
+    let orcDescription =
+      "The people of the Wrothgarian and Dragontail Mountains, Orcish smiths are prized for their craftsmanship. Orc troops in Heavy Armor are among the finest in the Empire, and are fearsome when using their Berserker Rage.";
+    let redguardDescription =
+      "The most naturally talented warriors in Tamriel, the Redguards of Hammerfell have a hardy constitution and a natural resistance to poison. They can call upon an Adrenaline Rush in combat.";
+    let woodElfDescription =
+      "The clanfolk of the Western Valenwood forests, also known as Bosmer. Wood elves make good scouts and thieves, and there are no finer archers in all of Tamriel. They have natural resistances to both poisons and diseases. They can Command Animals to fight for them.";
 
-  image(argonian, 96, characterSize, characterSize, characterSize);
-  image(breton, 128, characterSize, characterSize, characterSize);
-  image(darkElf, 160, characterSize, characterSize, characterSize);
-  image(highElf, 192, characterSize, characterSize, characterSize);
-  image(imperial, 224, characterSize, characterSize, characterSize);
-  image(khajiit, 256, characterSize, characterSize, characterSize);
-  image(nord, 288, characterSize, characterSize, characterSize);
-  image(orc, 320, characterSize, characterSize, characterSize);
-  image(redguard, 352, characterSize, characterSize, characterSize);
-  image(woodElf, 384, characterSize, characterSize, characterSize);
+    image(argonian, 96, characterSize, characterSize, characterSize);
+    image(breton, 128, characterSize, characterSize, characterSize);
+    image(darkElf, 160, characterSize, characterSize, characterSize);
+    image(highElf, 192, characterSize, characterSize, characterSize);
+    image(imperial, 224, characterSize, characterSize, characterSize);
+    image(khajiit, 256, characterSize, characterSize, characterSize);
+    image(nord, 288, characterSize, characterSize, characterSize);
+    image(orc, 320, characterSize, characterSize, characterSize);
+    image(redguard, 352, characterSize, characterSize, characterSize);
+    image(woodElf, 384, characterSize, characterSize, characterSize);
 
-  if (mouseX > 96 && mouseX < 128 && mouseY > 32 && mouseY < 64) {
-    overArgonian = true;
-    fill("white");
-    //Name and Description
-    textSize(20);
-    text("The Argonian", 32, 300, 448, 384);
-    textSize(14);
-    text(argonianDescription, 32, 384, 448, 448);
-    //Stat Increases
-    text("Stat Increases", 32, 345);
-    textSize(12);
-    text(
-      "10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration",
-      32,
-      365
-    );
-  } else {
-    overArgonian = false;
-  }
+    if (mouseX > 96 && mouseX < 128 && mouseY > 32 && mouseY < 64) {
+      overArgonian = true;
+      fill("white");
+      //Name and Description
+      textSize(20);
+      text("The Argonian", 32, 300, 448, 384);
+      textSize(14);
+      text(argonianDescription, 32, 384, 448, 448);
+      //Stat Increases
+      text("Stat Increases", 32, 345);
+      textSize(12);
+      text(
+        "10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration",
+        32,
+        365
+      );
+    }
+    else {
+      overArgonian = false;
+    }
 
-  if (mouseX > 128 && mouseX < 160 && mouseY > 32 && mouseY < 64) {
-    overBreton = true;
-    fill("white");
-    //Name and Description
-    textSize(20);
-    text("The Breton", 32, 300, 448, 384);
-    textSize(14);
-    text(bretonDescription, 32, 384, 448, 448);
-    //Stat Increases
-    text("Stat Increases", 32, 345);
-    textSize(12);
-    text(
-      "10 Conjuration 5 Speech 5 Alchemy 5 Illusion 5 Restoration 5 Alteration",
-      32,
-      365
-    );
-  } else {
-    overBreton = false;
-  }
+    if (mouseX > 128 && mouseX < 160 && mouseY > 32 && mouseY < 64) {
+      overBreton = true;
+      fill("white");
+      //Name and Description
+      textSize(20);
+      text("The Breton", 32, 300, 448, 384);
+      textSize(14);
+      text(bretonDescription, 32, 384, 448, 448);
+      //Stat Increases
+      text("Stat Increases", 32, 345);
+      textSize(12);
+      text(
+        "10 Conjuration 5 Speech 5 Alchemy 5 Illusion 5 Restoration 5 Alteration",
+        32,
+        365
+      );
+    }
+    else {
+      overBreton = false;
+    }
 
-  if (mouseX > 160 && mouseX < 192 && mouseY > 32 && mouseY < 64) {
-    overDarkElf = true;
-    fill("white");
-    //Name and Description
-    textSize(20);
-    text("The Dark Elf", 32, 300, 448, 384);
-    textSize(14);
-    text(darkElfDescription, 32, 384, 448, 448);
-    //Stat Increases
-    text("Stat Increases", 32, 345);
-    textSize(12);
-    text("10 Destruction 5 Sneak 5 Alchemy 5 Light Armor 5 Illusion", 32, 365);
-  } else {
-    overDarkElf = false;
-  }
+    if (mouseX > 160 && mouseX < 192 && mouseY > 32 && mouseY < 64) {
+      overDarkElf = true;
+      fill("white");
+      //Name and Description
+      textSize(20);
+      text("The Dark Elf", 32, 300, 448, 384);
+      textSize(14);
+      text(darkElfDescription, 32, 384, 448, 448);
+      //Stat Increases
+      text("Stat Increases", 32, 345);
+      textSize(12);
+      text("10 Destruction 5 Sneak 5 Alchemy 5 Light Armor 5 Illusion", 32, 365);
+    }
+    else {
+      overDarkElf = false;
+    }
 
-  if (mouseX > 192 && mouseX < 224 && mouseY > 32 && mouseY < 64) {
-    overHighElf = true;
-    fill("white");
-    //Name and Description
-    textSize(20);
-    text("The High Elf", 32, 300, 448, 384);
-    textSize(14);
-    text(highElfDescription, 32, 384, 448, 448);
-    //Stat Increases
-    text("Stat Increases", 32, 345);
-    textSize(12);
-    text(
-      "10 Illusion 5 Destruction 5 Cojuration 5 Alteration 5 Restoration 5 Enchanting",
-      32,
-      365
-    );
-  } else {
-    overHighElf = false;
-  }
+    if (mouseX > 192 && mouseX < 224 && mouseY > 32 && mouseY < 64) {
+      overHighElf = true;
+      fill("white");
+      //Name and Description
+      textSize(20);
+      text("The High Elf", 32, 300, 448, 384);
+      textSize(14);
+      text(highElfDescription, 32, 384, 448, 448);
+      //Stat Increases
+      text("Stat Increases", 32, 345);
+      textSize(12);
+      text(
+        "10 Illusion 5 Destruction 5 Cojuration 5 Alteration 5 Restoration 5 Enchanting",
+        32,
+        365
+      );
+    }
+    else {
+      overHighElf = false;
+    }
 
-  if (mouseX > 224 && mouseX < 256 && mouseY > 32 && mouseY < 64) {
-    overImperial = true;
-    fill("white");
-    //Name and Description
-    textSize(20);
-    text("The Imperial", 32, 300, 448, 384);
-    textSize(14);
-    text(imperialDescription, 32, 384, 448, 448);
-    //Stat Increases
-    text("Stat Increases", 32, 345);
-    textSize(12);
-    text(
-      "10 Restoration 5 Enchanting 5 Heavy Armor 5 One-Handed 5 Block 5 Destruction",
-      32,
-      365
-    );
-  } else {
-    overImperial = false;
-  }
+    if (mouseX > 224 && mouseX < 256 && mouseY > 32 && mouseY < 64) {
+      overImperial = true;
+      fill("white");
+      //Name and Description
+      textSize(20);
+      text("The Imperial", 32, 300, 448, 384);
+      textSize(14);
+      text(imperialDescription, 32, 384, 448, 448);
+      //Stat Increases
+      text("Stat Increases", 32, 345);
+      textSize(12);
+      text(
+        "10 Restoration 5 Enchanting 5 Heavy Armor 5 One-Handed 5 Block 5 Destruction",
+        32,
+        365
+      );
+    }
+    else {
+      overImperial = false;
+    }
 
-  if (mouseX > 256 && mouseX < 288 && mouseY > 32 && mouseY < 64) {
-    overKhajiit = true;
-    fill("white");
-    //Name and Description
-    textSize(20);
-    text("The Khajiit", 32, 300, 448, 384);
-    textSize(14);
-    text(khajiitDescription, 32, 384, 448, 448);
-    //Stat Increases
-    text("Stat Increases", 32, 345);
-    textSize(12);
-    text(
-      "10 Sneak 5 Lockpicking 5 Archery 5 Pickpocket 5 One-Handed 5 Alchemy",
-      32,
-      365
-    );
-  } else {
-    overKhajiit = false;
-  }
+    if (mouseX > 256 && mouseX < 288 && mouseY > 32 && mouseY < 64) {
+      overKhajiit = true;
+      fill("white");
+      //Name and Description
+      textSize(20);
+      text("The Khajiit", 32, 300, 448, 384);
+      textSize(14);
+      text(khajiitDescription, 32, 384, 448, 448);
+      //Stat Increases
+      text("Stat Increases", 32, 345);
+      textSize(12);
+      text(
+        "10 Sneak 5 Lockpicking 5 Archery 5 Pickpocket 5 One-Handed 5 Alchemy",
+        32,
+        365
+      );
+    }
+    else {
+      overKhajiit = false;
+    }
 
-  if (mouseX > 288 && mouseX < 320 && mouseY > 32 && mouseY < 64) {
-    overNord = true;
-    fill("white");
-    //Name and Description
-    textSize(20);
-    text("The Nord", 32, 300, 448, 384);
-    textSize(14);
-    text(nordDescription, 32, 384, 448, 448);
-    //Stat Increases
-    text("Stat Increases", 32, 345);
-    textSize(12);
-    text(
-      "10 Two-Handed 5 Smithing 5 Block 5 Light Armor 5 One-Handed 5 Speech",
-      32,
-      365
-    );
-  } else {
-    overNord = false;
-  }
+    if (mouseX > 288 && mouseX < 320 && mouseY > 32 && mouseY < 64) {
+      overNord = true;
+      fill("white");
+      //Name and Description
+      textSize(20);
+      text("The Nord", 32, 300, 448, 384);
+      textSize(14);
+      text(nordDescription, 32, 384, 448, 448);
+      //Stat Increases
+      text("Stat Increases", 32, 345);
+      textSize(12);
+      text(
+        "10 Two-Handed 5 Smithing 5 Block 5 Light Armor 5 One-Handed 5 Speech",
+        32,
+        365
+      );
+    }
+    else {
+      overNord = false;
+    }
 
-  if (mouseX > 320 && mouseX < 352 && mouseY > 32 && mouseY < 64) {
-    overOrc = true;
-    fill("white");
-    //Name and Description
-    textSize(20);
-    text("The Orsimer", 32, 300, 448, 384);
-    textSize(14);
-    text(orcDescription, 32, 384, 448, 448);
-    //Stat Increases
-    text("Stat Increases", 32, 345);
-    textSize(12);
-    text(
-      "10 Heavy Armor 5 Smithing 5 One-Handed 5 Block 5 Enchanting 5 Two-Handed",
-      32,
-      365
-    );
-  } else {
-    overOrc = false;
-  }
+    if (mouseX > 320 && mouseX < 352 && mouseY > 32 && mouseY < 64) {
+      overOrc = true;
+      fill("white");
+      //Name and Description
+      textSize(20);
+      text("The Orsimer", 32, 300, 448, 384);
+      textSize(14);
+      text(orcDescription, 32, 384, 448, 448);
+      //Stat Increases
+      text("Stat Increases", 32, 345);
+      textSize(12);
+      text(
+        "10 Heavy Armor 5 Smithing 5 One-Handed 5 Block 5 Enchanting 5 Two-Handed",
+        32,
+        365
+      );
+    }
+    else {
+      overOrc = false;
+    }
 
-  if (mouseX > 352 && mouseX < 384 && mouseY > 32 && mouseY < 64) {
-    overRedguard = true;
-    fill("white");
-    //Name and Description
-    textSize(20);
-    text("The Redguard", 32, 300, 448, 384);
-    textSize(14);
-    text(redguardDescription, 32, 384, 448, 448);
-    //Stat Increases
-    text("Stat Increases", 32, 345);
-    textSize(12);
-    text(
-      "10 One-Handed 5 Archery 5 Block 5 Smithing 5 Destruction 5 Alteration",
-      32,
-      365
-    );
-  } else {
-    overRedguard = false;
-  }
+    if (mouseX > 352 && mouseX < 384 && mouseY > 32 && mouseY < 64) {
+      overRedguard = true;
+      fill("white");
+      //Name and Description
+      textSize(20);
+      text("The Redguard", 32, 300, 448, 384);
+      textSize(14);
+      text(redguardDescription, 32, 384, 448, 448);
+      //Stat Increases
+      text("Stat Increases", 32, 345);
+      textSize(12);
+      text(
+        "10 One-Handed 5 Archery 5 Block 5 Smithing 5 Destruction 5 Alteration",
+        32,
+        365
+      );
+    }
+    else {
+      overRedguard = false;
+    }
 
-  if (mouseX > 384 && mouseX < 416 && mouseY > 32 && mouseY < 64) {
-    overWoodElf = true;
-    fill("white");
-    //Name and Description
-    textSize(20);
-    text("The Wood Elf", 32, 300, 448, 384);
-    textSize(14);
-    text(woodElfDescription, 32, 384, 448, 448);
-    //Stat Increases
-    text("Stat Increases", 32, 345);
-    textSize(12);
-    text(
-      "10 Archery 5 Sneak 5 Alchemy 5 Lockpicking 5 Pickpocket 5 Light Armor",
-      32,
-      365
-    );
-  } else {
-    overWoodElf = false;
+    if (mouseX > 384 && mouseX < 416 && mouseY > 32 && mouseY < 64) {
+      overWoodElf = true;
+      fill("white");
+      //Name and Description
+      textSize(20);
+      text("The Wood Elf", 32, 300, 448, 384);
+      textSize(14);
+      text(woodElfDescription, 32, 384, 448, 448);
+      //Stat Increases
+      text("Stat Increases", 32, 345);
+      textSize(12);
+      text(
+        "10 Archery 5 Sneak 5 Alchemy 5 Lockpicking 5 Pickpocket 5 Light Armor",
+        32,
+        365
+      );
+    }
+    else {
+      overWoodElf = false;
+    }
   }
 }
-function mousePressed(){
-  if(overArgonian){
-    player = argonian
+function mousePressed() {
+  if (overArgonian) {
+    player = argonian;
+    backgroundNumber = 1;
+    background(backgroundOne);
+    image(player, playerX, playerY, characterSize, characterSize);
+    image(rat, ratX, ratY, characterSize, characterSize);
   }
-  if(overBreton){
-    player = argonian
+  if (overBreton) {
+    player = breton;
+    backgroundNumber = 1;
+    background(backgroundOne);
+    image(player, playerX, playerY, characterSize, characterSize);
+    image(rat, ratX, ratY, characterSize, characterSize);
   }
-  if(overDarkElf){
-    player = argonian
+  if (overDarkElf) {
+    player = darkElf;
+    backgroundNumber = 1;
+    background(backgroundOne);
+    image(player, playerX, playerY, characterSize, characterSize);
+    image(rat, ratX, ratY, characterSize, characterSize);
   }
-  if(overHighElf){
-    player = argonian
+  if (overHighElf) {
+    player = highElf;
+    backgroundNumber = 1;
+    background(backgroundOne);
+    image(player, playerX, playerY, characterSize, characterSize);
+    image(rat, ratX, ratY, characterSize, characterSize);
   }
-  if(overImperial){
-    player = argonian
+  if (overImperial) {
+    player = imperial;
+    backgroundNumber = 1;
+    background(backgroundOne);
+    image(player, playerX, playerY, characterSize, characterSize);
+    image(rat, ratX, ratY, characterSize, characterSize);
   }
-  if(overKhajiit){
-    player = argonian
+  if (overKhajiit) {
+    player = khajiit;
+    backgroundNumber = 1;
+    background(backgroundOne);
+    image(player, playerX, playerY, characterSize, characterSize);
+    image(rat, ratX, ratY, characterSize, characterSize);
   }
-  if(overNord){
-    player = argonian
+  if (overNord) {
+    player = nord;
+    backgroundNumber = 1;
+    background(backgroundOne);
+    image(player, playerX, playerY, characterSize, characterSize);
+    image(rat, ratX, ratY, characterSize, characterSize);
   }
-  if(overOrc){
-    player = argonian
+  if (overOrc) {
+    player = orc;
+    backgroundNumber = 1;
+    background(backgroundOne);
+    image(player, playerX, playerY, characterSize, characterSize);
+    image(rat, ratX, ratY, characterSize, characterSize);
   }
-  if(overRedguard){
-    player = argonian
+  if (overRedguard) {
+    player = redguard;
+    backgroundNumber = 1;
+    background(backgroundOne);
+    image(player, playerX, playerY, characterSize, characterSize);
+    image(rat, ratX, ratY, characterSize, characterSize);
   }
-  if(overWoodElf){
-    player = argonian
+  if (overWoodElf) {
+    player = woodElf;
+    backgroundNumber = 1;
+    background(backgroundOne);
+    image(player, playerX, playerY, characterSize, characterSize);
+    image(rat, ratX, ratY, characterSize, characterSize);
   }
 }
 
@@ -377,15 +430,18 @@ function ratMovement() {
     if (ratY > characterSize) {
       ratY = ratY - characterSize;
     }
-  } else if (chance === 2) {
+  }
+  else if (chance === 2) {
     if (ratY < 448) {
       ratY = ratY + characterSize;
     }
-  } else if (chance === 3) {
+  }
+  else if (chance === 3) {
     if (ratX < 480) {
       ratX = ratX + characterSize;
     }
-  } else if (chance === 4) {
+  }
+  else if (chance === 4) {
     if (ratX > characterSize) {
       ratX = ratX - characterSize;
     }
@@ -461,31 +517,23 @@ function movement() {
   }
 }
 
-// function states(){
-//   if (state === "battle") {
-//   }
-// }
-
-function draw(){
+function draw() {
   characterSelect();
   movement();
-  background(backgroundOne);
-
-  image(player, playerX, playerY, characterSize, characterSize);
-  image(rat, ratX, ratY, characterSize, characterSize);
-
 
   if (ratX !== playerX && ratY !== playerY) {
     if (millis() >= ratTimeNow + ratPeriod) {
       ratMovement();
       ratTimeNow = millis();
     }
-  } else if (ratX === playerX && ratY !== playerY) {
+  }
+  else if (ratX === playerX && ratY !== playerY) {
     if (millis() >= ratTimeNow + ratPeriod) {
       ratMovement();
       ratTimeNow = millis();
     }
-  } else if (ratX !== playerX && ratY === playerY) {
+  }
+  else if (ratX !== playerX && ratY === playerY) {
     if (millis() >= ratTimeNow + ratPeriod) {
       ratMovement();
       ratTimeNow = millis();
