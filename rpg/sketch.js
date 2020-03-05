@@ -27,6 +27,17 @@ let backgroundOne;
 let backgroundNumber = 1;
 
 //Races
+let overArgonian = false;
+let overBreton = false;
+let overDarkElf = false;
+let overHighElf = false;
+let overImperial = false;
+let overKhajiit = false;
+let overNord = false;
+let overOrc = false;
+let overRedguard = false;
+let overWoodElf = false;
+
 let argonian;
 let breton;
 let darkElf;
@@ -132,6 +143,16 @@ function characterSelect() {
   image(woodElf, 384, characterSize, characterSize, characterSize);
 
   if (mouseX > 96 && mouseX < 128 && mouseY > 32 && mouseY < 64) {
+    overArgonian = true;
+    overBreton = false;
+    overDarkElf = false;
+    overHighElf = false;
+    overImperial = false;
+    overKhajiit = false;
+    overNord = false;
+    overOrc = false;
+    overRedguard = false;
+    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -140,10 +161,27 @@ function characterSelect() {
     text(argonianDescription, 32, 384, 448, 448);
     //Stat Increases
     text("Stat Increases", 32, 345);
-    textSize(12);   
-    text("10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration", 32, 365);
+    textSize(12);
+    text(
+      "10 Lockpicking 5 Sneak 5 Light Armor 5 Pickpocket 5 Restoration",
+      32,
+      365
+    );
+  } else {
+    overArgonian = false;
   }
+
   if (mouseX > 128 && mouseX < 160 && mouseY > 32 && mouseY < 64) {
+    overBreton = true;
+    overArgonian = false;
+    overDarkElf = false;
+    overHighElf = false;
+    overImperial = false;
+    overKhajiit = false;
+    overNord = false;
+    overOrc = false;
+    overRedguard = false;
+    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -153,9 +191,26 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Conjuration 5 Speech 5 Alchemy 5 Illusion 5 Restoration 5 Alteration", 32, 365);
+    text(
+      "10 Conjuration 5 Speech 5 Alchemy 5 Illusion 5 Restoration 5 Alteration",
+      32,
+      365
+    );
+  } else {
+    overBreton = false;
   }
+
   if (mouseX > 160 && mouseX < 192 && mouseY > 32 && mouseY < 64) {
+    overDarkElf = true;
+    overArgonian = false;
+    overBreton = false;
+    overHighElf = false;
+    overImperial = false;
+    overKhajiit = false;
+    overNord = false;
+    overOrc = false;
+    overRedguard = false;
+    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -166,8 +221,21 @@ function characterSelect() {
     text("Stat Increases", 32, 345);
     textSize(12);
     text("10 Destruction 5 Sneak 5 Alchemy 5 Light Armor 5 Illusion", 32, 365);
+  } else {
+    overDarkElf = false;
   }
+
   if (mouseX > 192 && mouseX < 224 && mouseY > 32 && mouseY < 64) {
+    overHighElf = true;
+    overArgonian = false;
+    overBreton = false;
+    overDarkElf = false;
+    overImperial = false;
+    overKhajiit = false;
+    overNord = false;
+    overOrc = false;
+    overRedguard = false;
+    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -177,9 +245,26 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Illusion 5 Destruction 5 Cojuration 5 Alteration 5 Restoration 5 Enchanting", 32, 365);
+    text(
+      "10 Illusion 5 Destruction 5 Cojuration 5 Alteration 5 Restoration 5 Enchanting",
+      32,
+      365
+    );
+  } else {
+    overHighElf = false;
   }
+
   if (mouseX > 224 && mouseX < 256 && mouseY > 32 && mouseY < 64) {
+    overImperial = true;
+    overArgonian = false;
+    overBreton = false;
+    overDarkElf = false;
+    overHighElf = false;
+    overKhajiit = false;
+    overNord = false;
+    overOrc = false;
+    overRedguard = false;
+    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -189,9 +274,26 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Restoration 5 Enchanting 5 Heavy Armor 5 One-Handed 5 Block 5 Destruction", 32, 365);
+    text(
+      "10 Restoration 5 Enchanting 5 Heavy Armor 5 One-Handed 5 Block 5 Destruction",
+      32,
+      365
+    );
+  } else {
+    overImperial = false;
   }
+
   if (mouseX > 256 && mouseX < 288 && mouseY > 32 && mouseY < 64) {
+    overKhajiit = true;
+    overArgonian = false;
+    overBreton = false;
+    overDarkElf = false;
+    overHighElf = false;
+    overImperial = false;
+    overNord = false;
+    overOrc = false;
+    overRedguard = false;
+    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -201,9 +303,26 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Sneak 5 Lockpicking 5 Archery 5 Pickpocket 5 One-Handed 5 Alchemy", 32, 365);
+    text(
+      "10 Sneak 5 Lockpicking 5 Archery 5 Pickpocket 5 One-Handed 5 Alchemy",
+      32,
+      365
+    );
+  } else {
+    overKhajiit = false;
   }
+
   if (mouseX > 288 && mouseX < 320 && mouseY > 32 && mouseY < 64) {
+    overNord = true;
+    overArgonian = false;
+    overBreton = false;
+    overDarkElf = false;
+    overHighElf = false;
+    overImperial = false;
+    overKhajiit = false;
+    overOrc = false;
+    overRedguard = false;
+    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -213,9 +332,26 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Two-Handed 5 Smithing 5 Block 5 Light Armor 5 One-Handed 5 Speech", 32, 365);
+    text(
+      "10 Two-Handed 5 Smithing 5 Block 5 Light Armor 5 One-Handed 5 Speech",
+      32,
+      365
+    );
+  } else {
+    overNord = false;
   }
+
   if (mouseX > 320 && mouseX < 352 && mouseY > 32 && mouseY < 64) {
+    overOrc = true;
+    overArgonian = false;
+    overBreton = false;
+    overDarkElf = false;
+    overHighElf = false;
+    overImperial = false;
+    overKhajiit = false;
+    overNord = false;
+    overRedguard = false;
+    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -225,9 +361,26 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Heavy Armor 5 Smithing 5 One-Handed 5 Block 5 Enchanting 5 Two-Handed", 32, 365);
+    text(
+      "10 Heavy Armor 5 Smithing 5 One-Handed 5 Block 5 Enchanting 5 Two-Handed",
+      32,
+      365
+    );
+  } else {
+    overOrc = false;
   }
+
   if (mouseX > 352 && mouseX < 384 && mouseY > 32 && mouseY < 64) {
+    overRedguard = true;
+    overArgonian = false;
+    overBreton = false;
+    overDarkElf = false;
+    overHighElf = false;
+    overImperial = false;
+    overKhajiit = false;
+    overNord = false;
+    overOrc = false;
+    overWoodElf = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -237,9 +390,26 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 One-Handed 5 Archery 5 Block 5 Smithing 5 Destruction 5 Alteration", 32, 365);
+    text(
+      "10 One-Handed 5 Archery 5 Block 5 Smithing 5 Destruction 5 Alteration",
+      32,
+      365
+    );
+  } else {
+    overRedguard = false;
   }
+
   if (mouseX > 384 && mouseX < 416 && mouseY > 32 && mouseY < 64) {
+    overWoodElf = true;
+    overArgonian = false;
+    overBreton = false;
+    overDarkElf = false;
+    overHighElf = false;
+    overImperial = false;
+    overKhajiit = false;
+    overNord = false;
+    overOrc = false;
+    overRedguard = false;
     fill("white");
     //Name and Description
     textSize(20);
@@ -249,7 +419,13 @@ function characterSelect() {
     //Stat Increases
     text("Stat Increases", 32, 345);
     textSize(12);
-    text("10 Archery 5 Sneak 5 Alchemy 5 Lockpicking 5 Pickpocket 5 Light Armor", 32, 365);
+    text(
+      "10 Archery 5 Sneak 5 Alchemy 5 Lockpicking 5 Pickpocket 5 Light Armor",
+      32,
+      365
+    );
+  } else {
+    overWoodElf = false;
   }
 }
 
@@ -259,18 +435,15 @@ function ratMovement() {
     if (ratY > characterSize) {
       ratY = ratY - characterSize;
     }
-  }
-  else if (chance === 2) {
+  } else if (chance === 2) {
     if (ratY < 448) {
       ratY = ratY + characterSize;
     }
-  }
-  else if (chance === 3) {
+  } else if (chance === 3) {
     if (ratX < 480) {
       ratX = ratX + characterSize;
     }
-  }
-  else if (chance === 4) {
+  } else if (chance === 4) {
     if (ratX > characterSize) {
       ratX = ratX - characterSize;
     }
@@ -352,6 +525,7 @@ function movement() {
 // }
 
 function draw() {
+  console.log(overArgonian);
   movement();
   background(backgroundOne);
 
@@ -364,14 +538,12 @@ function draw() {
       ratMovement();
       ratTimeNow = millis();
     }
-  }
-  else if (ratX === playerX && ratY !== playerY) {
+  } else if (ratX === playerX && ratY !== playerY) {
     if (millis() >= ratTimeNow + ratPeriod) {
       ratMovement();
       ratTimeNow = millis();
     }
-  }
-  else if (ratX !== playerX && ratY === playerY) {
+  } else if (ratX !== playerX && ratY === playerY) {
     if (millis() >= ratTimeNow + ratPeriod) {
       ratMovement();
       ratTimeNow = millis();
