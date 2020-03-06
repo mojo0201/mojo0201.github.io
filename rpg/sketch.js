@@ -351,76 +351,70 @@ function characterSelect() {
     }
   }
 }
+
 function mousePressed() {
-  if (overArgonian) {
-    player = argonian;
-    backgroundNumber = 1;
-    background(backgroundOne);
-    image(player, playerX, playerY, characterSize, characterSize);
-    image(rat, ratX, ratY, characterSize, characterSize);
-  }
-  if (overBreton) {
-    player = breton;
-    backgroundNumber = 1;
-    background(backgroundOne);
-    image(player, playerX, playerY, characterSize, characterSize);
-    image(rat, ratX, ratY, characterSize, characterSize);
-  }
-  if (overDarkElf) {
-    player = darkElf;
-    backgroundNumber = 1;
-    background(backgroundOne);
-    image(player, playerX, playerY, characterSize, characterSize);
-    image(rat, ratX, ratY, characterSize, characterSize);
-  }
-  if (overHighElf) {
-    player = highElf;
-    backgroundNumber = 1;
-    background(backgroundOne);
-    image(player, playerX, playerY, characterSize, characterSize);
-    image(rat, ratX, ratY, characterSize, characterSize);
-  }
-  if (overImperial) {
-    player = imperial;
-    backgroundNumber = 1;
-    background(backgroundOne);
-    image(player, playerX, playerY, characterSize, characterSize);
-    image(rat, ratX, ratY, characterSize, characterSize);
-  }
-  if (overKhajiit) {
-    player = khajiit;
-    backgroundNumber = 1;
-    background(backgroundOne);
-    image(player, playerX, playerY, characterSize, characterSize);
-    image(rat, ratX, ratY, characterSize, characterSize);
-  }
-  if (overNord) {
-    player = nord;
-    backgroundNumber = 1;
-    background(backgroundOne);
-    image(player, playerX, playerY, characterSize, characterSize);
-    image(rat, ratX, ratY, characterSize, characterSize);
-  }
-  if (overOrc) {
-    player = orc;
-    backgroundNumber = 1;
-    background(backgroundOne);
-    image(player, playerX, playerY, characterSize, characterSize);
-    image(rat, ratX, ratY, characterSize, characterSize);
-  }
-  if (overRedguard) {
-    player = redguard;
-    backgroundNumber = 1;
-    background(backgroundOne);
-    image(player, playerX, playerY, characterSize, characterSize);
-    image(rat, ratX, ratY, characterSize, characterSize);
-  }
-  if (overWoodElf) {
-    player = woodElf;
-    backgroundNumber = 1;
-    background(backgroundOne);
-    image(player, playerX, playerY, characterSize, characterSize);
-    image(rat, ratX, ratY, characterSize, characterSize);
+  if (backgroundNumber === 0) {
+    if (overArgonian) {
+      player = argonian;
+      backgroundNumber = 1;
+      background(backgroundOne);
+      lockpicking = lockpicking + 10
+      sneak = sneak + 5
+      lightArmor = lightArmor + 5
+      pickpocket = pickpocket + 5
+      restoration = restoration + 5
+    }
+    if (overBreton) {
+      player = breton;
+      backgroundNumber = 1;
+      background(backgroundOne);
+      conjuration = conjuration + 10
+      speech = speech + 5
+      alchemy = alchemy + 5
+      illusion = illusion + 5
+      restoration = restoration + 5
+      alteration = alteration + 5
+    }
+    if (overDarkElf) {
+      player = darkElf;
+      backgroundNumber = 1;
+      background(backgroundOne);
+    }
+    if (overHighElf) {
+      player = highElf;
+      backgroundNumber = 1;
+      background(backgroundOne);
+    }
+    if (overImperial) {
+      player = imperial;
+      backgroundNumber = 1;
+      background(backgroundOne);
+    }
+    if (overKhajiit) {
+      player = khajiit;
+      backgroundNumber = 1;
+      background(backgroundOne);
+    }
+    if (overNord) {
+      player = nord;
+      backgroundNumber = 1;
+      background(backgroundOne);
+    }
+    if (overOrc) {
+      player = orc;
+      backgroundNumber = 1;
+      background(backgroundOne);
+    }
+    if (overRedguard) {
+      player = redguard;
+      backgroundNumber = 1;
+      background(backgroundOne);
+    }
+    if (overWoodElf) {
+      player = woodElf;
+      backgroundNumber = 1;
+      background(backgroundOne);
+    }
   }
 }
 
@@ -519,24 +513,29 @@ function movement() {
 
 function draw() {
   characterSelect();
-  movement();
+  if (backgroundNumber === 1) {
+    movement();
+    background(backgroundOne)
+    image(player, playerX, playerY, characterSize, characterSize);
+    image(rat, ratX, ratY, characterSize, characterSize);
 
-  if (ratX !== playerX && ratY !== playerY) {
-    if (millis() >= ratTimeNow + ratPeriod) {
-      ratMovement();
-      ratTimeNow = millis();
+    if (ratX !== playerX && ratY !== playerY) {
+      if (millis() >= ratTimeNow + ratPeriod) {
+        ratMovement();
+        ratTimeNow = millis();
+      }
     }
-  }
-  else if (ratX === playerX && ratY !== playerY) {
-    if (millis() >= ratTimeNow + ratPeriod) {
-      ratMovement();
-      ratTimeNow = millis();
+    else if (ratX === playerX && ratY !== playerY) {
+      if (millis() >= ratTimeNow + ratPeriod) {
+        ratMovement();
+        ratTimeNow = millis();
+      }
     }
-  }
-  else if (ratX !== playerX && ratY === playerY) {
-    if (millis() >= ratTimeNow + ratPeriod) {
-      ratMovement();
-      ratTimeNow = millis();
+    else if (ratX !== playerX && ratY === playerY) {
+      if (millis() >= ratTimeNow + ratPeriod) {
+        ratMovement();
+        ratTimeNow = millis();
+      }
     }
   }
 }
