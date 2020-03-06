@@ -92,8 +92,6 @@ function preload() {
   orc = loadImage("assets/orc.png");
   redguard = loadImage("assets/redguard.png");
   woodElf = loadImage("assets/woodElf.png");
-
-  player = loadImage("assets/player.png");
   //enemys
   rat = loadImage("assets/rat.png");
   //fonts
@@ -103,7 +101,6 @@ function preload() {
 
 function setup() {
   createCanvas(512, 512);
-  frameRate(30);
   textFont(mainFont);
 }
 
@@ -358,62 +355,110 @@ function mousePressed() {
       player = argonian;
       backgroundNumber = 1;
       background(backgroundOne);
-      lockpicking = lockpicking + 10
-      sneak = sneak + 5
-      lightArmor = lightArmor + 5
-      pickpocket = pickpocket + 5
-      restoration = restoration + 5
+      lockpicking += 10;
+      sneak += 5;
+      lightArmor += 5;
+      pickpocket += 5;
+      restoration += 5;
     }
     if (overBreton) {
       player = breton;
       backgroundNumber = 1;
       background(backgroundOne);
-      conjuration = conjuration + 10
-      speech = speech + 5
-      alchemy = alchemy + 5
-      illusion = illusion + 5
-      restoration = restoration + 5
-      alteration = alteration + 5
+      conjuration += 10;
+      speech += 5;
+      alchemy += 5;
+      illusion += 5;
+      restoration += 5;
+      alteration += 5;
     }
     if (overDarkElf) {
       player = darkElf;
       backgroundNumber = 1;
       background(backgroundOne);
+      destruction += 10;
+      sneak += 5;
+      alchemy += 5;
+      lightArmor += 5;
+      illusion += 5;
+
     }
     if (overHighElf) {
       player = highElf;
       backgroundNumber = 1;
       background(backgroundOne);
+      illusion += 10;
+      destruction += 5;
+      conjuration += 5;
+      alteration += 5;
+      restoration += 5;
+      enchanting += 5;
     }
     if (overImperial) {
       player = imperial;
       backgroundNumber = 1;
       background(backgroundOne);
+      restoration += 10 ;
+      enchanting += 5;
+      heavyArmor += 5;
+      oneHanded += 5;
+      block += 5;
+      destruction += 5;
     }
     if (overKhajiit) {
       player = khajiit;
       backgroundNumber = 1;
       background(backgroundOne);
+      sneak += 10;
+      lockpicking += 5; 
+      archery += 5;
+      pickpocket += 5;
+      oneHanded += 5;
+      alchemy += 5;
     }
     if (overNord) {
       player = nord;
       backgroundNumber = 1;
       background(backgroundOne);
+      twoHanded += 10;
+      smithing += 5;
+      block += 5;
+      lightArmor += 5;
+      oneHanded += 5;
+      speech += 5;
     }
     if (overOrc) {
       player = orc;
       backgroundNumber = 1;
       background(backgroundOne);
+      heavyArmor += 10;
+      smithing += 5;
+      oneHanded += 5;
+      block += 5;
+      enchanting += 5;
+      twoHanded += 5;
     }
     if (overRedguard) {
       player = redguard;
       backgroundNumber = 1;
       background(backgroundOne);
+      oneHanded += 10;
+      archery += 5;
+      block += 5;
+      smithing += 5;
+      destruction += 5;
+      alteration += 5;
     }
     if (overWoodElf) {
       player = woodElf;
       backgroundNumber = 1;
       background(backgroundOne);
+      archery += 10;
+      sneak += 5;
+      alchemy += 5;
+      lockpicking += 5;
+      pickpocket += 5;
+      lightArmor += 5;
     }
   }
 }
@@ -485,25 +530,25 @@ function movement() {
     right = false;
     left = false;
   }
-  if (up === true && millis() >= keyTimeNow + keyDownPeriod) {
+  if (up && millis() >= keyTimeNow + keyDownPeriod) {
     if (playerY > characterSize) {
       playerY -= characterSize;
       keyTimeNow = millis();
     }
   }
-  if (down === true && millis() >= keyTimeNow + keyDownPeriod) {
+  if (down && millis() >= keyTimeNow + keyDownPeriod) {
     if (playerY < 448) {
       playerY += characterSize;
       keyTimeNow = millis();
     }
   }
-  if (right === true && millis() >= keyTimeNow + keyDownPeriod) {
+  if (right && millis() >= keyTimeNow + keyDownPeriod) {
     if (playerX < 480) {
       playerX += characterSize;
       keyTimeNow = millis();
     }
   }
-  if (left === true && millis() >= keyTimeNow + keyDownPeriod) {
+  if (left && millis() >= keyTimeNow + keyDownPeriod) {
     if (playerX > characterSize) {
       playerX -= characterSize;
       keyTimeNow = millis();
@@ -515,7 +560,7 @@ function draw() {
   characterSelect();
   if (backgroundNumber === 1) {
     movement();
-    background(backgroundOne)
+    background(backgroundOne);
     image(player, playerX, playerY, characterSize, characterSize);
     image(rat, ratX, ratY, characterSize, characterSize);
 
