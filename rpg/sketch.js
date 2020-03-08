@@ -66,6 +66,7 @@ let rat = {
   health : 5,
   attack : 2
 };
+let ratSprite;
 let ratPeriod = 1000;
 let ratTimeNow = 0;
 
