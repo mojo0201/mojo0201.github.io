@@ -2,31 +2,11 @@
 // Seth Jones
 // 2/12/2020
 
-//stats
-let illusion = 15;
-let conjuration = 15;
-let destruction = 15;
-let restoration = 15;
-let alteration = 15;
-let enchanting = 15;
-let smithing = 15;
-let heavyArmor = 15;
-let block = 15;
-let twoHanded = 15;
-let oneHanded = 15;
-let archery = 15;
-let lightArmor = 15;
-let sneak = 15;
-let lockpicking = 15;
-let pickpocket = 15;
-let speech = 15;
-let alchemy = 15;
-
 //Background Variables
 let backgroundOne;
 let backgroundNumber = 0;
 
-//Races
+//detection
 let overArgonian = false;
 let overBreton = false;
 let overDarkElf = false;
@@ -37,6 +17,8 @@ let overNord = false;
 let overOrc = false;
 let overRedguard = false;
 let overWoodElf = false;
+
+//races
 
 let argonian;
 let breton;
@@ -50,16 +32,40 @@ let redguard;
 let woodElf;
 
 //Player
-let player;
-let playerX = 256;
-let playerY = 256;
+let player = {
+  x: 256,
+  y: 256,
+  health : 100,
+  magicka : 100,
+  illusion : 15,
+  conjuration : 15,
+  destruction : 15,
+  restoration : 15,
+  alteration : 15,
+  enchanting : 15,
+  smithing : 15,
+  heavyArmor : 15,
+  block : 15,
+  twoHanded : 15,
+  oneHanded : 15,
+  archery : 15,
+  lightArmor : 15,
+  sneak : 15,
+  lockpicking : 15,
+  pickpocket : 15,
+  speech : 15,
+  alchemy : 15
+};
 let keyDownPeriod = 150;
 let keyTimeNow;
 
 //Rat
-let rat;
-let ratX = 384;
-let ratY = 384;
+let rat = {
+  x : 384,
+  y : 384,
+  health : 5,
+  attack : 2
+};
 let ratPeriod = 1000;
 let ratTimeNow = 0;
 
@@ -93,11 +99,14 @@ function preload() {
   redguard = loadImage("assets/redguard.png");
   woodElf = loadImage("assets/woodElf.png");
   //enemys
-  rat = loadImage("assets/rat.png");
+  ratSprite = loadImage("assets/rat.png");
   //fonts
   oblivionFont = loadFont("assets/oblivion.ttf");
   mainFont = loadFont("assets/8bit.ttf");
 }
+
+//N = 12.5 * N**2 + 62.5 * N - 75
+//exp to go from level 1 to N
 
 function setup() {
   createCanvas(512, 512);
@@ -352,113 +361,114 @@ function characterSelect() {
 function mousePressed() {
   if (backgroundNumber === 0) {
     if (overArgonian) {
-      player = argonian;
+      player.race = argonian;
       backgroundNumber = 1;
       background(backgroundOne);
-      lockpicking += 10;
-      sneak += 5;
-      lightArmor += 5;
-      pickpocket += 5;
-      restoration += 5;
+      player.lockpicking += 10;
+      player.sneak += 5;
+      player.lightArmor += 5;
+      player.pickpocket += 5;
+      player.restoration += 5;
     }
     if (overBreton) {
-      player = breton;
+      player.race = breton;
       backgroundNumber = 1;
       background(backgroundOne);
-      conjuration += 10;
-      speech += 5;
-      alchemy += 5;
-      illusion += 5;
-      restoration += 5;
-      alteration += 5;
+      player.conjuration += 10;
+      player.speech += 5;
+      player.alchemy += 5;
+      player.illusion += 5;
+      player.restoration += 5;
+      player.alteration += 5;
     }
     if (overDarkElf) {
-      player = darkElf;
+      player.race = darkElf;
       backgroundNumber = 1;
       background(backgroundOne);
-      destruction += 10;
-      sneak += 5;
-      alchemy += 5;
-      lightArmor += 5;
-      illusion += 5;
+      player.destruction += 10;
+      player.sneak += 5;
+      player.alchemy += 5;
+      player.lightArmor += 5;
+      player.illusion += 5;
 
     }
     if (overHighElf) {
-      player = highElf;
+      player.race = highElf;
       backgroundNumber = 1;
       background(backgroundOne);
-      illusion += 10;
-      destruction += 5;
-      conjuration += 5;
-      alteration += 5;
-      restoration += 5;
-      enchanting += 5;
+      player.magicka += 50;
+      player.illusion += 10;
+      player.destruction += 5;
+      player.conjuration += 5;
+      player.alteration += 5;
+      player.restoration += 5;
+      player.enchanting += 5;
     }
     if (overImperial) {
-      player = imperial;
+      player.race = imperial;
       backgroundNumber = 1;
       background(backgroundOne);
-      restoration += 10 ;
-      enchanting += 5;
-      heavyArmor += 5;
-      oneHanded += 5;
-      block += 5;
-      destruction += 5;
+      player.restoration += 10 ;
+      player.enchanting += 5;
+      player.heavyArmor += 5;
+      player.oneHanded += 5;
+      player.block += 5;
+      player.destruction += 5;
     }
     if (overKhajiit) {
-      player = khajiit;
+      player.race = khajiit;
       backgroundNumber = 1;
       background(backgroundOne);
-      sneak += 10;
-      lockpicking += 5; 
-      archery += 5;
-      pickpocket += 5;
-      oneHanded += 5;
-      alchemy += 5;
+      player.sneak += 10;
+      player.lockpicking += 5; 
+      player.archery += 5;
+      player.pickpocket += 5;
+      player.oneHanded += 5;
+      player.alchemy += 5;
     }
     if (overNord) {
-      player = nord;
+      player.race = nord;
       backgroundNumber = 1;
       background(backgroundOne);
-      twoHanded += 10;
-      smithing += 5;
-      block += 5;
-      lightArmor += 5;
-      oneHanded += 5;
-      speech += 5;
+      player.twoHanded += 10;
+      player.smithing += 5;
+      player.block += 5;
+      player.lightArmor += 5;
+      player.oneHanded += 5;
+      player.speech += 5;
     }
     if (overOrc) {
-      player = orc;
+      player.race = orc;
       backgroundNumber = 1;
       background(backgroundOne);
-      heavyArmor += 10;
-      smithing += 5;
-      oneHanded += 5;
-      block += 5;
-      enchanting += 5;
-      twoHanded += 5;
+      player.heavyArmor += 10;
+      player.smithing += 5;
+      player.oneHanded += 5;
+      player.block += 5;
+      player.enchanting += 5;
+      player.twoHanded += 5;
     }
     if (overRedguard) {
-      player = redguard;
+      player.race = redguard;
       backgroundNumber = 1;
       background(backgroundOne);
-      oneHanded += 10;
-      archery += 5;
-      block += 5;
-      smithing += 5;
-      destruction += 5;
-      alteration += 5;
+      player.oneHanded += 10;
+      player.archery += 5;
+      player.block += 5;
+      player.smithing += 5;
+      player.destruction += 5;
+      player.alteration += 5;
     }
     if (overWoodElf) {
-      player = woodElf;
+      player.race = woodElf;
       backgroundNumber = 1;
       background(backgroundOne);
-      archery += 10;
-      sneak += 5;
-      alchemy += 5;
-      lockpicking += 5;
-      pickpocket += 5;
-      lightArmor += 5;
+      player.archery += 10;
+      player.sneak += 5;
+      player.alchemy += 5;
+      player.lockpicking += 5;
+      player.pickpocket += 5;
+      player.lightArmor += 5;
     }
   }
 }
@@ -466,23 +476,23 @@ function mousePressed() {
 function ratMovement() {
   let chance = Math.ceil(random(0, 4));
   if (chance === 1) {
-    if (ratY > characterSize) {
-      ratY = ratY - characterSize;
+    if (rat.y > characterSize) {
+      rat.y = rat.y - characterSize;
     }
   }
   else if (chance === 2) {
-    if (ratY < 448) {
-      ratY = ratY + characterSize;
+    if (rat.y < 448) {
+      rat.y = rat.y + characterSize;
     }
   }
   else if (chance === 3) {
-    if (ratX < 480) {
-      ratX = ratX + characterSize;
+    if (rat.x < 480) {
+      rat.x = rat.x + characterSize;
     }
   }
   else if (chance === 4) {
-    if (ratX > characterSize) {
-      ratX = ratX - characterSize;
+    if (rat.x > characterSize) {
+      rat.x = rat.x - characterSize;
     }
   }
 }
@@ -523,7 +533,7 @@ function keyReleased() {
 }
 
 function movement() {
-  if (playerX === ratX && playerY === ratY) {
+  if (player.x === rat.x && player.y === rat.y) {
     state = "battle";
     up = false;
     down = false;
@@ -531,26 +541,26 @@ function movement() {
     left = false;
   }
   if (up && millis() >= keyTimeNow + keyDownPeriod) {
-    if (playerY > characterSize) {
-      playerY -= characterSize;
+    if (player.y > characterSize) {
+      player.y -= characterSize;
       keyTimeNow = millis();
     }
   }
   if (down && millis() >= keyTimeNow + keyDownPeriod) {
-    if (playerY < 448) {
-      playerY += characterSize;
+    if (player.y < 448) {
+      player.y += characterSize;
       keyTimeNow = millis();
     }
   }
   if (right && millis() >= keyTimeNow + keyDownPeriod) {
-    if (playerX < 480) {
-      playerX += characterSize;
+    if (player.x < 480) {
+      player.x += characterSize;
       keyTimeNow = millis();
     }
   }
   if (left && millis() >= keyTimeNow + keyDownPeriod) {
-    if (playerX > characterSize) {
-      playerX -= characterSize;
+    if (player.x > characterSize) {
+      player.x -= characterSize;
       keyTimeNow = millis();
     }
   }
@@ -561,22 +571,22 @@ function draw() {
   if (backgroundNumber === 1) {
     movement();
     background(backgroundOne);
-    image(player, playerX, playerY, characterSize, characterSize);
-    image(rat, ratX, ratY, characterSize, characterSize);
+    image(player.race, player.x, player.y, characterSize, characterSize);
+    image(ratSprite, rat.x, rat.y, characterSize, characterSize);
 
-    if (ratX !== playerX && ratY !== playerY) {
+    if (rat.x !== player.x && rat.y !== player.y) {
       if (millis() >= ratTimeNow + ratPeriod) {
         ratMovement();
         ratTimeNow = millis();
       }
     }
-    else if (ratX === playerX && ratY !== playerY) {
+    else if (rat.x === player.x && rat.y !== player.y) {
       if (millis() >= ratTimeNow + ratPeriod) {
         ratMovement();
         ratTimeNow = millis();
       }
     }
-    else if (ratX !== playerX && ratY === playerY) {
+    else if (rat.x !== player.x && rat.y === player.y) {
       if (millis() >= ratTimeNow + ratPeriod) {
         ratMovement();
         ratTimeNow = millis();
