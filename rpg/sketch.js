@@ -498,6 +498,27 @@ function ratMovement() {
   }
 }
 
+function ratDetection() {
+  if (rat.x !== player.x && rat.y !== player.y) {
+    if (millis() >= ratTimeNow + ratPeriod) {
+      ratMovement();
+      ratTimeNow = millis();
+    }
+  }
+  else if (rat.x === player.x && rat.y !== player.y) {
+    if (millis() >= ratTimeNow + ratPeriod) {
+      ratMovement();
+      ratTimeNow = millis();
+    }
+  }
+  else if (rat.x !== player.x && rat.y === player.y) {
+    if (millis() >= ratTimeNow + ratPeriod) {
+      ratMovement();
+      ratTimeNow = millis();
+    }
+  }
+}
+
 function keyPressed() {
   //Movement Keys
   if (keyCode === UP_ARROW || key === "w") {
@@ -516,6 +537,9 @@ function keyPressed() {
     left = true;
     keyTimeNow = millis();
   }
+  // if (key === "e"){
+
+  // }
 }
 
 function keyReleased() {
@@ -574,24 +598,7 @@ function draw() {
     background(backgroundOne);
     image(player.race, player.x, player.y, characterSize, characterSize);
     image(ratSprite, rat.x, rat.y, characterSize, characterSize);
+    ratDetection();
 
-    if (rat.x !== player.x && rat.y !== player.y) {
-      if (millis() >= ratTimeNow + ratPeriod) {
-        ratMovement();
-        ratTimeNow = millis();
-      }
-    }
-    else if (rat.x === player.x && rat.y !== player.y) {
-      if (millis() >= ratTimeNow + ratPeriod) {
-        ratMovement();
-        ratTimeNow = millis();
-      }
-    }
-    else if (rat.x !== player.x && rat.y === player.y) {
-      if (millis() >= ratTimeNow + ratPeriod) {
-        ratMovement();
-        ratTimeNow = millis();
-      }
-    }
   }
 }
